@@ -118,6 +118,9 @@
     "canvasInitError": "分享图生成失败：Canvas 初始化失败",
     "canvasBlobError": "分享图生成失败",
     "copyUnsupportedError": "复制失败：浏览器不支持剪贴板写入",
+    "mobilePreviewPageTitle": "BBTI 分享图",
+    "mobilePreviewLoading": "正在生成分享图...",
+    "mobilePreviewHint": "长按图片可保存到相册，或用浏览器右上角分享按钮处理。",
     "fontStack": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
     "templates": [
       "我在 BBTI 篮球迷人格测试里测出了【{code} · {name}】！{quote} 你也来测测你的篮球 DNA：{url}",

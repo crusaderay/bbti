@@ -364,18 +364,15 @@ export async function generateShareImage(result, ui) {
 }
 
 export async function downloadShareImage(result, ui) {
+  const previewWindow = openMobilePreviewWindow(ui);
   const blob = await generateShareImage(result, ui);
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `bbti-${result.archetype.code.toLowerCase()}.png`;
-  link.style.display = 'none';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  window.setTimeout(() => {
-    URL.revokeObjectURL(url);
-  }, 1000);
+  const filename = `bbti-${result.archetype.code.toLowerCase()}.png`;
+  if (previewWindow) {
+    renderMobilePreviewWindow(previewWindow, blob, result, ui);
+    return;
+  }
+
+  triggerFileDownload(blob, filename);
 }
 
 export async function copyShareText(result, ui) {
@@ -420,4 +417,157 @@ async function writeClipboardText(text, ui) {
     const message = ui?.share?.copyUnsupportedError ?? 'Copy failed: clipboard unavailable';
     throw new Error(message);
   }
+}
+
+function isLikelyMobileDevice() {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return false;
+  if (window.matchMedia?.('(pointer: coarse)').matches) return true;
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+}
+
+function openMobilePreviewWindow(ui) {
+  if (typeof window === 'undefined' || typeof window.open !== 'function' || !isLikelyMobileDevice()) {
+    return null;
+  }
+
+  const previewWindow = window.open('', '_blank');
+  if (!previewWindow) return null;
+
+  const shareUi = ui?.share ?? {};
+  const title = shareUi.mobilePreviewPageTitle ?? 'BBTI 分享图';
+  const loading = shareUi.mobilePreviewLoading ?? '正在生成分享图...';
+
+  previewWindow.document.write(`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>${escapeHtmlText(title)}</title>
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #0b1017;
+        color: #f7fbff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .preview-shell {
+        width: min(100vw, 860px);
+        padding: 24px 16px 40px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .preview-loading {
+        margin: 0;
+        color: rgba(247, 251, 255, 0.78);
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="preview-shell">
+      <p class="preview-loading">${escapeHtmlText(loading)}</p>
+    </main>
+  </body>
+</html>`);
+  previewWindow.document.close();
+  return previewWindow;
+}
+
+function renderMobilePreviewWindow(previewWindow, blob, result, ui) {
+  const shareUi = ui?.share ?? {};
+  const title = shareUi.mobilePreviewPageTitle ?? 'BBTI 分享图';
+  const hint = shareUi.mobilePreviewHint ?? '长按图片可保存到相册，或用浏览器右上角分享按钮处理。';
+  const url = URL.createObjectURL(blob);
+
+  try {
+    const doc = previewWindow.document;
+    doc.title = title;
+    doc.body.innerHTML = '';
+
+    const style = doc.createElement('style');
+    style.textContent = `
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #0b1017;
+        color: #f7fbff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .preview-shell {
+        width: min(100vw, 920px);
+        margin: 0 auto;
+        padding: 20px 12px 40px;
+        box-sizing: border-box;
+      }
+      .preview-hint {
+        margin: 0 0 16px;
+        text-align: center;
+        color: rgba(247, 251, 255, 0.8);
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .preview-image {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 20px;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+      }
+    `;
+    doc.head.appendChild(style);
+
+    const main = doc.createElement('main');
+    main.className = 'preview-shell';
+
+    const hintEl = doc.createElement('p');
+    hintEl.className = 'preview-hint';
+    hintEl.textContent = hint;
+
+    const image = doc.createElement('img');
+    image.className = 'preview-image';
+    image.src = url;
+    image.alt = `${result.archetype.code} ${result.archetype.name}`;
+
+    main.appendChild(hintEl);
+    main.appendChild(image);
+    doc.body.appendChild(main);
+
+    previewWindow.addEventListener('beforeunload', () => {
+      URL.revokeObjectURL(url);
+    }, { once: true });
+  } catch (error) {
+    console.warn('Preview window rendering failed, falling back to file download:', error);
+    URL.revokeObjectURL(url);
+    triggerFileDownload(blob, `bbti-${result.archetype.code.toLowerCase()}.png`);
+  }
+}
+
+function triggerFileDownload(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  window.setTimeout(() => {
+    URL.revokeObjectURL(url);
+  }, 1000);
+}
+
+function escapeHtmlText(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
 }

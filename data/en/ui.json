@@ -118,6 +118,9 @@
     "canvasInitError": "Share card generation failed: canvas init error",
     "canvasBlobError": "Share card generation failed",
     "copyUnsupportedError": "Copy failed: your browser doesn't support clipboard writes",
+    "mobilePreviewPageTitle": "BBTI Share Card",
+    "mobilePreviewLoading": "Generating your share card...",
+    "mobilePreviewHint": "Long-press the image to save it to Photos, or use your browser's share button.",
     "fontStack": "\"Helvetica Neue\", \"Segoe UI\", system-ui, sans-serif",
     "templates": [
       "BBTI tagged me as [{code} · {name}]! {quote} Test your own basketball DNA: {url}",
