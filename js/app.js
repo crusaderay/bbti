@@ -175,6 +175,16 @@ function renderLanding() {
       </article>
     </section>
   `;
+
+  const startButton = pages[PAGES.LANDING].querySelector('[data-action="start-quiz"]');
+  const handleDirectStart = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    startQuiz('landing');
+  };
+
+  startButton?.addEventListener('click', handleDirectStart);
+  startButton?.addEventListener('touchend', handleDirectStart, { passive: false });
 }
 
 function renderQuiz() {
@@ -433,8 +443,16 @@ async function switchLanguage(nextLang) {
   }
 }
 
+function getActionTarget(event) {
+  const source = event.target instanceof Element
+    ? event.target
+    : event.target?.parentElement ?? null;
+
+  return source?.closest('[data-action]') ?? null;
+}
+
 function onClick(event) {
-  const target = event.target.closest('[data-action]');
+  const target = getActionTarget(event);
   if (!target) return;
 
   const action = target.dataset.action;
