@@ -1,0 +1,26 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ballGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(92 76) rotate(53.5) scale(132.527)">
+      <stop stop-color="#FFCC73"/>
+      <stop offset="0.48" stop-color="#FF9C22"/>
+      <stop offset="1" stop-color="#F06A00"/>
+    </radialGradient>
+    <filter id="shadow" x="10" y="16" width="220" height="220" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="8"/>
+      <feGaussianBlur stdDeviation="10"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.95 0 0 0 0 0.42 0 0 0 0 0 0 0 0 0.22 0"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <circle cx="120" cy="112" r="78" fill="url(#ballGlow)"/>
+    <circle cx="120" cy="112" r="74.5" stroke="white" stroke-opacity="0.18" stroke-width="7"/>
+    <path d="M42 112H198" stroke="#2C1507" stroke-width="9" stroke-linecap="round"/>
+    <path d="M120 34C100 56 88 83 88 112C88 141 100 168 120 190" stroke="#2C1507" stroke-width="9" stroke-linecap="round"/>
+    <path d="M120 34C140 56 152 83 152 112C152 141 140 168 120 190" stroke="#2C1507" stroke-width="9" stroke-linecap="round"/>
+    <path d="M67 55C79 72 86 91 86 112C86 133 79 152 67 169" stroke="#2C1507" stroke-opacity="0.68" stroke-width="6" stroke-linecap="round"/>
+    <path d="M173 55C161 72 154 91 154 112C154 133 161 152 173 169" stroke="#2C1507" stroke-opacity="0.68" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="93" cy="78" rx="22" ry="14" fill="white" fill-opacity="0.18"/>
+  </g>
+</svg>

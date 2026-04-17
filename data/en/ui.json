@@ -1,0 +1,249 @@
+{
+  "version": "1.0.0",
+  "lang": "en",
+  "htmlLang": "en",
+  "meta": {
+    "title": "BBTI · Basketball Big Personality Test",
+    "description": "A scientifically baseless personality test that reads hoops fans better than you shoot free throws. 25 brutal questions, 27 archetypes, and memes in every row."
+  },
+  "header": {
+    "brandName": "BBTI",
+    "brandSubtitle": "Basketball Big Personality Test",
+    "galleryLink": "Gallery",
+    "returnHomeAria": "Return home",
+    "langSwitchLabel": "\u4e2d",
+    "langSwitchAria": "Switch to Chinese"
+  },
+  "landing": {
+    "eyebrow": "Today's Courtside Cross-Examination",
+    "subtitle": "A fresh call-out every time you land here. Pass the grilling first, then we'll talk about whether you actually watch ball.",
+    "metaTemplate": "{total} questions · 27 archetypes · 5 models × 15 dimensions",
+    "startButton": "Start the test",
+    "errorEyebrow": "Init failed",
+    "errorTitle": "BBTI couldn't tip off cleanly.",
+    "errorBody": "Make sure you're serving this via a local static server, not double-clicking the file.",
+    "hooks": [
+      { "lead": "Your team loses and you blame the refs \u2014", "punch": "do you actually know ball, or are you just mad?" },
+      { "lead": "You keep talking ring culture \u2014", "punch": "how many has your squad actually stacked lately?" },
+      { "lead": "You call everyone a bandwagon rat \u2014", "punch": "so whose jersey is sitting in your cart right now?" },
+      { "lead": "Your guy teams up with a rival and you lose it \u2014", "punch": "then why did your avatar change before the parade ended?" },
+      { "lead": "\"The future is his\" rolls off your tongue \u2014", "punch": "what year does your team's \"future\" actually start?" },
+      { "lead": "You yell \"that's all?\" at the screen \u2014", "punch": "would you even warm up if someone actually called your number?" },
+      { "lead": "Hear \"35 seconds, 13 points\" and your eyes water \u2014", "punch": "are you watching ball or curating a YouTube memory lane?" },
+      { "lead": "You roast your GM in a sub thread every L \u2014", "punch": "you think you could actually run a cap sheet?" },
+      { "lead": "You swear you're not a ring chaser \u2014", "punch": "then why do you own every recent champ's City Edition?" },
+      { "lead": "Someone dares compliment a star \u2014", "punch": "and you immediately drag out your top-ten list?" },
+      { "lead": "When your team wins you rank all-time \u2014", "punch": "when they lose regular-season suddenly doesn't matter?" },
+      { "lead": "Your opener is always \"Says who?\" \u2014", "punch": "you here to discuss or to flip the table?" },
+      { "lead": "You mock the 73-win team for adding KD \u2014", "punch": "wouldn't YOU beg your GM to push all the chips in?" },
+      { "lead": "You screenshot the game-winner before it lands \u2014", "punch": "watching ball or chasing content?" },
+      { "lead": "Every loss: \"the future is ours\" \u2014", "punch": "what payment plan is your team's future on?" },
+      { "lead": "Someone mentions a play call and you scoff \u2014", "punch": "then who exactly are you yelling at during timeouts?" },
+      { "lead": "You use \"58-point massacre\" as a unit of measure \u2014", "punch": "actually watched that game, or just repeating?" },
+      { "lead": "A star rolls an ankle and you're emotionally broken \u2014", "punch": "watching hoops or trying to be his internet mom?" },
+      { "lead": "Airball three straight at the park, still saying \"I had that\" \u2014", "punch": "where are you getting this confidence from?" },
+      { "lead": "Blame the refs on a loss, brag about talent on a win \u2014", "punch": "is this double-standard script saved in your Notes app?" }
+    ]
+  },
+  "loading": {
+    "eyebrow": "Analyzing",
+    "title": "Decoding your basketball DNA\u2026",
+    "steps": [
+      "Scanning BBIQ index\u2026",
+      "Probing loyalty genes\u2026",
+      "Measuring saltiness level\u2026",
+      "Gauging effort investment\u2026",
+      "Calibrating posting compulsion\u2026",
+      "Matching your archetype\u2026"
+    ]
+  },
+  "quiz": {
+    "progressEyebrow": "Progress",
+    "progressCopyTemplate": "Out of {total} questions, finishing this quiz already means you're built different.",
+    "questionEyebrowTemplate": "Question {index}"
+  },
+  "result": {
+    "eyebrow": "Your basketball fan archetype is",
+    "originSpecial": "Hidden / special ending",
+    "originFallback": "Fallback verdict",
+    "originDistanceTemplate": "Manhattan distance {distance}",
+    "defaultPrototype": "Today you ARE your own archetype.",
+    "modelsEyebrow": "Five Core Models",
+    "radarHeading": "Basketball DNA radar",
+    "radarAriaLabel": "5-model radar chart",
+    "unknownRarity": "Unknown rarity",
+    "analysisEyebrow": "Breakdown",
+    "analysisHeadingTemplate": "How you ended up as {name}",
+    "metaPrototypeLabel": "Player / team prototype",
+    "metaTriggerLabel": "Trigger note",
+    "defaultTriggerNote": "Matched via shortest Manhattan distance across 15 dimensions.",
+    "noteHiddenQ25": "You hit the hidden Q25 option, and your salt gauge cleared the hidden trigger threshold.",
+    "noteFallbackEmpty": "No comparable archetype found \u2014 dropped you on the fallback Waterboy.",
+    "noteFallbackDistance": "The closest archetype still came in over the 18-point cutoff, so the fallback archetype kicked in.",
+    "memeEyebrow": "Random roast",
+    "roastEyebrow": "Personal roast",
+    "roastHeading": "Calling you out using your own answers",
+    "defaultRoastSummary": "Your answers had personality, but the system hasn't organized a clean takedown yet.",
+    "dimensionsEyebrow": "15-dimension split",
+    "dimensionsHeading": "Your attribute spread",
+    "matchesEyebrow": "Similar archetypes",
+    "matchesHeading": "Your closest three",
+    "distanceLabelTemplate": "distance {distance}",
+    "shareImageButton": "Generate share card",
+    "copyTextButton": "Copy caption",
+    "restartButton": "Retake test",
+    "galleryButton": "View gallery",
+    "bandLow": "Low",
+    "bandMid": "Mid",
+    "bandHigh": "High",
+    "buttonDone": "Done",
+    "buttonComplete": "Complete",
+    "shareError": "Share action failed. Check the console for details.",
+    "imageAltTemplate": "{code} · {name} archetype portrait"
+  },
+  "gallery": {
+    "eyebrow": "Full archetype gallery",
+    "title": "All 27 basketball fan archetypes, in one place",
+    "body": "From GOAT, IRON, and POLO to the hidden BEER and the fallback BNCH \u2014 they're all here in one complete gallery.",
+    "returnResultButton": "Back to result",
+    "backHomeButton": "Home",
+    "defaultPrototype": "A category of one",
+    "unlabeledRarity": "Unlabeled",
+    "specialBadge": "Special",
+    "standardBadge": "Standard"
+  },
+  "share": {
+    "tagline": "You thought you were watching the game. The game was watching you.",
+    "brandSubtitleOnCard": "Basketball Big Personality Test",
+    "canvasInitError": "Share card generation failed: canvas init error",
+    "canvasBlobError": "Share card generation failed",
+    "copyUnsupportedError": "Copy failed: your browser doesn't support clipboard writes",
+    "fontStack": "\"Helvetica Neue\", \"Segoe UI\", system-ui, sans-serif",
+    "templates": [
+      "BBTI tagged me as [{code} · {name}]! {quote} Test your own basketball DNA: {url}",
+      "Verdict's in: I'm a [{name}] \u2014 {shortDesc}. BBTI read me way too well. {url}",
+      "BBTI says I'm [{code}] {name}. Accuracy is suspicious \u2014 someone's been reading my group chat. Try it: {url}"
+    ]
+  },
+  "personalize": {
+    "summaryTemplate": "You landed on {archetypeName} not because the system glitched, but because you lean way too hard on {topLabel} and {secondLabel}, while {bottomLabel} flatlines. That's how your fandom tilted all the way into this archetype \u2014 you couldn't fake \"normal\" if you tried.",
+    "modelHighReads": {
+      "B": "You watch basketball like you're auditing the coaching staff \u2014 while everyone cheers the make, you're already checking who blew the weak-side rotation.",
+      "L": "Your loyalty standards are borderline religious. Switching teams, in your book, is essentially changing your last name.",
+      "F": "Your salt level runs hot. Watching ball isn't entertainment for you \u2014 it's a scheduled rage release.",
+      "A": "You don't just type fire emojis in the group chat. You actually spend the time, the money, and occasionally the dignity.",
+      "S": "You need an audience when you watch. If you didn't post twice, did you even watch?"
+    },
+    "modelLowReads": {
+      "B": "You don't sweat the details. You care more about outcomes and vibes than turning yourself into a film-breakdown machine.",
+      "L": "You're not a loyalty extremist, which means you've held onto the human-level sanity of \"it's just a game.\"",
+      "F": "Your heat doesn't spike that fast. You can pull the brake mid-argument \u2014 borderline extinct behavior in fan circles.",
+      "A": "Love is love, but the second basketball asks for your wallet, weekend, or knees \u2014 your body veto kicks in first.",
+      "S": "You don't feel the urge to perform. You're more the stealth-viewer type, happy to watch without broadcasting."
+    },
+    "answerRoasts": {
+      "Q2": {
+        "A": "You shrugged off KD's Warriors move and rolled over \u2014 your team loyalty has the depth of a hotel slipper.",
+        "B": "You claim to \"get it,\" but there's still a splinter in there. Rational brain in the front row, emotions heckling from the back.",
+        "C": "KD's Hamptons flight launched you out of bed \u2014 your defection radar is set to anti-aircraft sensitivity."
+      },
+      "Q1": {
+        "B": "A boss casually says \"pick-and-roll is just a screen, right?\" and you're immediately giving a bilingual course \u2014 your tolerance for civilians is low, but your social instincts survive.",
+        "C": "You drew a set play on a napkin at a team dinner \u2014 you weren't there to eat, you were there to interview for a film-analyst job."
+      },
+      "Q3": {
+        "B": "You sent smiley emojis and an ellipsis after a blown call \u2014 everyone who knows you can tell you're already past livid.",
+        "C": "You didn't lose to the refs. You launched a grassroots investigation committee and dragged the league into imaginary court overnight."
+      },
+      "Q4": {
+        "B": "\"Consensus\" instantly triggers \"Says who?\" in your head \u2014 you're a conditioned reflex arguer on any history topic.",
+        "C": "You hijacked a table dinner into a full GOAT history lecture \u2014 you don't love discussion, you love taking over the room."
+      },
+      "Q5": {
+        "B": "You made it to the arena AND worked the \"proof of attendance\" story \u2014 going to games and performing online are permanently coupled for you.",
+        "C": "You ask about row numbers, tunnel access, and the nearest craft brewery faster than the ticketing agent \u2014 you don't attend games, you run logistics."
+      },
+      "Q6": {
+        "B": "Steph hits a dagger and your first move is screenshot-and-post \u2014 you process peak moments by saving evidence before you even react.",
+        "C": "You're not watching the game winner, you're turning it into a full content rollout \u2014 even your dinner has to make room for your posting cadence."
+      },
+      "Q7": {
+        "B": "When your team tanks, you dig into scouting reports voluntarily \u2014 you haven't given up, you've turned despair into a to-do list.",
+        "C": "2-17 and you're more hyped every loss \u2014 you've conditioned yourself to feel pleasure through pain."
+      },
+      "Q8": {
+        "A": "\"He's just him / he's trash\" \u2014 that answer has energy, and absolutely zero evidence.",
+        "C": "The moment you pull out advanced stats, the group chat knows: this isn't a basketball convo, it's a defense of your thesis."
+      },
+      "Q9": {
+        "B": "When you title a post \"open discussion,\" you probably actually plan to act civilized for the first five minutes.",
+        "C": "Mods see your username and know court's back in session \u2014 you're basically a full-time plaintiff in fan culture."
+      },
+      "Q10": {
+        "B": "Your self-assessment of your hoops skill is actually close to reality \u2014 an endangered virtue at pickup courts.",
+        "C": "You claimed \"neighborhood Kobe\" before even touching the court \u2014 your confidence is way more consistent than your shot."
+      },
+      "Q11": {
+        "B": "You can hold \"I still love him\" and \"I will never defend his new team\" simultaneously \u2014 elite-tier fan multiple personality disorder.",
+        "C": "Morning: trashing bandwagoners. Afternoon: avatar/wallpaper/cart all switched. Your mouth and hands are never on the same team."
+      },
+      "Q12": {
+        "B": "You can resist jumping into the Kobe-vs-LeBron bait \u2014 you're not neutral, you're just tired of time-travel wars before noon.",
+        "C": "A 47-page GOAT analysis doc is not fandom anymore. That's a whole side quest."
+      },
+      "Q13": {
+        "B": "You got your friend to at least recognize a few star names \u2014 half a rookie mentor.",
+        "C": "You got a casual to say \"that's a foul,\" \"that's not basketball,\" and \"the future is his\" \u2014 that's not evangelism, that's contamination."
+      },
+      "Q14": {
+        "B": "You can name the McGrady moment on cue \u2014 you've at least passed the intro-level NBA memes certification.",
+        "C": "You can recite the exact possession order \u2014 that replay isn't a memory in your head, it's a permanent desktop widget."
+      },
+      "Q15": {
+        "B": "You take shots but leave an exit lane \u2014 your self-preservation instinct is at least still online.",
+        "C": "You've filed your opposition research GIFs into labeled folders \u2014 this isn't argument, it's digitized revenge."
+      },
+      "Q16": {
+        "B": "Your spending looks like that of a reasonable fan \u2014 wallet and passion are currently in a sustainable relationship.",
+        "C": "That's not merchandise shopping. That's you wiring sponsorship fees to the league with your debit card."
+      },
+      "Q17": {
+        "B": "You'll roast the front office but never defect \u2014 that stubborn-hearted mix is basically an old married couple.",
+        "C": "The team is in shambles and you still cite \"love\" \u2014 your tolerance for misery drama is abnormal."
+      },
+      "Q18": {
+        "B": "Others watch the dagger. You watch the late-game possession logic \u2014 your joy centers were re-wired by coaches.",
+        "C": "Your focus on weak-side rotations and help-defense communication is on par with an unpaid assistant coach."
+      },
+      "Q19": {
+        "B": "You feel the sting but don't reopen old wounds \u2014 you've been hurt, but at least it's scabbed over.",
+        "C": "You turned J.R.'s run-out-the-clock moment into an annual remembrance post \u2014 trauma has fully turned into content in your hands."
+      },
+      "Q20": {
+        "B": "At local watch parties, you're the reliable vibes person \u2014 not shy, not yet unhinged enough to bring your own banner.",
+        "C": "Projector, banner, chants, booze \u2014 all on your phone. You don't attend the event, you ARE the event."
+      },
+      "Q21": {
+        "B": "You'll grant \"the numbers do look good\" \u2014 you still leave a little room for the messy truth.",
+        "C": "The moment someone yells \"stat padder,\" you flip into data-defender mode and would publish a paper live."
+      },
+      "Q22": {
+        "B": "Your phone has basketball bits sprinkled in, but your life isn't fully hostage to the schedule \u2014 you've got one foot halfway in.",
+        "C": "Your phone reads like an unofficial team ops dashboard \u2014 basketball isn't a hobby anymore, it's running in the background 24/7."
+      },
+      "Q23": {
+        "B": "You treat old memes as archaeology, not as an opportunity to recite the full lineage \u2014 you've got decent restraint.",
+        "C": "Someone drops a casual meme and you launch into a full podcast retrospective \u2014 that's not a conversation, that's an oral exam."
+      },
+      "Q24": {
+        "B": "People like you are the most dangerous on pickup courts \u2014 skill isn't absurd, mouth isn't idle, perfectly positioned to coach others.",
+        "C": "At the park you're not a player \u2014 you're a drop-in head coach and spiritual stakeholder rolled into one."
+      },
+      "Q25": {
+        "B": "Elimination games make your palms sweat \u2014 you still have the basic vitals of a normal fan.",
+        "C": "Before tipoff you've already done outfit, snacks, chat-list cleanup \u2014 your ritual energy is at coronation level.",
+        "D": "You've turned fandom into a booze-based project with real execution \u2014 impressive discipline, wildly wrong direction."
+      }
+    }
+  }
+}

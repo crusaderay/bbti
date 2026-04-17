@@ -1,0 +1,32 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#0D1117"/>
+  <rect width="1600" height="1200" fill="url(#grain)" fill-opacity="0.08"/>
+  <g opacity="0.26" stroke="#FF8C00" stroke-width="3">
+    <path d="M120 180H1480V1020H120V180Z"/>
+    <path d="M800 180V1020"/>
+    <circle cx="800" cy="600" r="122"/>
+    <path d="M120 420H290C290 420 344 478 344 600C344 722 290 780 290 780H120"/>
+    <path d="M1480 420H1310C1310 420 1256 478 1256 600C1256 722 1310 780 1310 780H1480"/>
+    <path d="M120 500H210V700H120"/>
+    <path d="M1480 500H1390V700H1480"/>
+    <path d="M210 600C210 550 250 510 300 510"/>
+    <path d="M1390 600C1390 550 1350 510 1300 510"/>
+    <path d="M210 600C210 650 250 690 300 690"/>
+    <path d="M1390 600C1390 650 1350 690 1300 690"/>
+  </g>
+  <g opacity="0.08" fill="#FF8C00">
+    <circle cx="220" cy="160" r="160"/>
+    <circle cx="1430" cy="150" r="120"/>
+    <circle cx="1410" cy="1030" r="180"/>
+    <circle cx="140" cy="1010" r="130"/>
+  </g>
+  <defs>
+    <pattern id="grain" width="120" height="120" patternUnits="userSpaceOnUse">
+      <circle cx="22" cy="25" r="2" fill="#fff"/>
+      <circle cx="84" cy="72" r="1.6" fill="#fff"/>
+      <circle cx="56" cy="98" r="1.2" fill="#fff"/>
+      <circle cx="102" cy="20" r="1.4" fill="#fff"/>
+      <circle cx="16" cy="88" r="1.6" fill="#fff"/>
+    </pattern>
+  </defs>
+</svg>

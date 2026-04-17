@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BBTI · Basketball Big Personality Test</title>
+    <meta
+      name="description"
+      content="A scientifically baseless personality test that reads hoops fans better than you shoot free throws. 25 brutal questions, 27 archetypes, memes everywhere."
+    >
+    <meta name="theme-color" content="#f6faf6">
+    <link rel="icon" type="image/svg+xml" href="./img/logo.svg">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div class="app-bg" aria-hidden="true">
+      <img class="app-bg__court" src="./img/court-bg.svg" alt="">
+      <div class="app-bg__glow app-bg__glow--left"></div>
+      <div class="app-bg__glow app-bg__glow--right"></div>
+    </div>
+
+    <div class="app-shell">
+      <header class="app-header">
+        <button class="brand-mark" type="button" data-action="show-landing" data-brand-mark aria-label="Return to home">
+          <img src="./img/logo.svg" alt="">
+          <span>
+            <strong>BBTI</strong>
+            <small>Basketball Big Personality Test</small>
+          </span>
+        </button>
+        <div class="header-actions">
+          <button class="header-link" type="button" data-action="open-gallery" data-nav-gallery>Gallery</button>
+          <button class="header-link header-link--lang" type="button" data-action="toggle-lang" aria-label="Switch language">EN</button>
+        </div>
+      </header>
+
+      <main class="page-stack" id="app-root">
+        <section class="page is-active" id="page-landing" aria-live="polite"></section>
+        <section class="page" id="page-quiz" aria-live="polite"></section>
+        <section class="page" id="page-loading" aria-live="polite"></section>
+        <section class="page" id="page-result" aria-live="polite"></section>
+        <section class="page" id="page-gallery" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

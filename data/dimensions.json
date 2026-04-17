@@ -1,0 +1,137 @@
+{
+  "version": "1.0.0",
+  "models": [
+    {
+      "id": "B",
+      "name": "球商",
+      "color": "#ff8c00"
+    },
+    {
+      "id": "L",
+      "name": "忠诚",
+      "color": "#ffb347"
+    },
+    {
+      "id": "F",
+      "name": "火力",
+      "color": "#ef4444"
+    },
+    {
+      "id": "A",
+      "name": "行动",
+      "color": "#22c55e"
+    },
+    {
+      "id": "S",
+      "name": "社交",
+      "color": "#60a5fa"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "B1",
+      "name": "战术理解力",
+      "model": "B",
+      "modelName": "球商",
+      "questionCount": 4
+    },
+    {
+      "id": "B2",
+      "name": "历史知识深度",
+      "model": "B",
+      "modelName": "球商",
+      "questionCount": 4
+    },
+    {
+      "id": "B3",
+      "name": "数据素养",
+      "model": "B",
+      "modelName": "球商",
+      "questionCount": 2
+    },
+    {
+      "id": "L1",
+      "name": "球队忠诚度",
+      "model": "L",
+      "modelName": "忠诚",
+      "questionCount": 2
+    },
+    {
+      "id": "L2",
+      "name": "球星追随度",
+      "model": "L",
+      "modelName": "忠诚",
+      "questionCount": 2
+    },
+    {
+      "id": "L3",
+      "name": "低谷耐受力",
+      "model": "L",
+      "modelName": "忠诚",
+      "questionCount": 2
+    },
+    {
+      "id": "F1",
+      "name": "赛后戾气值",
+      "model": "F",
+      "modelName": "火力",
+      "questionCount": 3
+    },
+    {
+      "id": "F2",
+      "name": "论坛输出频率",
+      "model": "F",
+      "modelName": "火力",
+      "questionCount": 2
+    },
+    {
+      "id": "F3",
+      "name": "喷人精准度",
+      "model": "F",
+      "modelName": "火力",
+      "questionCount": 3
+    },
+    {
+      "id": "A1",
+      "name": "现场参与度",
+      "model": "A",
+      "modelName": "行动",
+      "questionCount": 2
+    },
+    {
+      "id": "A2",
+      "name": "消费投入度",
+      "model": "A",
+      "modelName": "行动",
+      "questionCount": 2
+    },
+    {
+      "id": "A3",
+      "name": "野球实战力",
+      "model": "A",
+      "modelName": "行动",
+      "questionCount": 2
+    },
+    {
+      "id": "S1",
+      "name": "安利传播力",
+      "model": "S",
+      "modelName": "社交",
+      "questionCount": 2
+    },
+    {
+      "id": "S2",
+      "name": "圈子融入度",
+      "model": "S",
+      "modelName": "社交",
+      "questionCount": 2
+    },
+    {
+      "id": "S3",
+      "name": "线上表演欲",
+      "model": "S",
+      "modelName": "社交",
+      "questionCount": 3
+    }
+  ]
+}

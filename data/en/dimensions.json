@@ -1,0 +1,137 @@
+{
+  "version": "1.0.0",
+  "models": [
+    {
+      "id": "B",
+      "name": "IQ",
+      "color": "#ff8c00"
+    },
+    {
+      "id": "L",
+      "name": "LOYAL",
+      "color": "#ffb347"
+    },
+    {
+      "id": "F",
+      "name": "SALT",
+      "color": "#ef4444"
+    },
+    {
+      "id": "A",
+      "name": "GRIND",
+      "color": "#22c55e"
+    },
+    {
+      "id": "S",
+      "name": "HYPE",
+      "color": "#60a5fa"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "B1",
+      "name": "Tactical Reading",
+      "model": "B",
+      "modelName": "IQ",
+      "questionCount": 4
+    },
+    {
+      "id": "B2",
+      "name": "Historical Depth",
+      "model": "B",
+      "modelName": "IQ",
+      "questionCount": 4
+    },
+    {
+      "id": "B3",
+      "name": "Analytics Fluency",
+      "model": "B",
+      "modelName": "IQ",
+      "questionCount": 2
+    },
+    {
+      "id": "L1",
+      "name": "Team Devotion",
+      "model": "L",
+      "modelName": "LOYAL",
+      "questionCount": 2
+    },
+    {
+      "id": "L2",
+      "name": "Player Devotion",
+      "model": "L",
+      "modelName": "LOYAL",
+      "questionCount": 2
+    },
+    {
+      "id": "L3",
+      "name": "Rebuild Tolerance",
+      "model": "L",
+      "modelName": "LOYAL",
+      "questionCount": 2
+    },
+    {
+      "id": "F1",
+      "name": "Post-Game Rage",
+      "model": "F",
+      "modelName": "SALT",
+      "questionCount": 3
+    },
+    {
+      "id": "F2",
+      "name": "Posting Volume",
+      "model": "F",
+      "modelName": "SALT",
+      "questionCount": 2
+    },
+    {
+      "id": "F3",
+      "name": "Takedown Precision",
+      "model": "F",
+      "modelName": "SALT",
+      "questionCount": 3
+    },
+    {
+      "id": "A1",
+      "name": "Arena Presence",
+      "model": "A",
+      "modelName": "GRIND",
+      "questionCount": 2
+    },
+    {
+      "id": "A2",
+      "name": "Wallet Commitment",
+      "model": "A",
+      "modelName": "GRIND",
+      "questionCount": 2
+    },
+    {
+      "id": "A3",
+      "name": "Pickup Skill",
+      "model": "A",
+      "modelName": "GRIND",
+      "questionCount": 2
+    },
+    {
+      "id": "S1",
+      "name": "Fan Conversion",
+      "model": "S",
+      "modelName": "HYPE",
+      "questionCount": 2
+    },
+    {
+      "id": "S2",
+      "name": "Scene Presence",
+      "model": "S",
+      "modelName": "HYPE",
+      "questionCount": 2
+    },
+    {
+      "id": "S3",
+      "name": "Posting Compulsion",
+      "model": "S",
+      "modelName": "HYPE",
+      "questionCount": 3
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "version": "1.0.0",
+  "memes": [
+    {
+      "id": "meme_58",
+      "text": "才输30分？连58的一半都不到。",
+      "source": "虎扑 · 2009 黄蜂惨败",
+      "relatedTypes": [
+        "58",
+        "SALT",
+        "REF"
+      ]
+    },
+    {
+      "id": "meme_majian",
+      "text": "谁公认的？",
+      "source": "马健 · 《不吹不黑》2016",
+      "relatedTypes": [
+        "GOAT",
+        "COAH"
+      ]
+    },
+    {
+      "id": "meme_zhouqi",
+      "text": "这球传给谁呢！",
+      "source": "周琦 · 2019 男篮世界杯",
+      "relatedTypes": [
+        "POLO",
+        "DEAD"
+      ]
+    },
+    {
+      "id": "meme_kd",
+      "text": "打不过就加入。",
+      "source": "杜兰特加入勇士 · 2016",
+      "relatedTypes": [
+        "BAND",
+        "IRON"
+      ]
+    },
+    {
+      "id": "meme_tmac",
+      "text": "永远不要提前离开球场。",
+      "source": "麦迪 35 秒 13 分 · 2004",
+      "relatedTypes": [
+        "MEDI",
+        "CTRL"
+      ]
+    },
+    {
+      "id": "meme_process",
+      "text": "Trust The Process。",
+      "source": "76 人摆烂时代 · 2014-16",
+      "relatedTypes": [
+        "TANK",
+        "MONK"
+      ]
+    },
+    {
+      "id": "meme_cxk",
+      "text": "练习时长两年半。",
+      "source": "蔡徐坤打篮球事件",
+      "relatedTypes": [
+        "FAKE",
+        "HYPE"
+      ]
+    },
+    {
+      "id": "meme_0_27",
+      "text": "0-27。",
+      "source": "2018 火箭西决 G7 连续 27 个三分不中",
+      "relatedTypes": [
+        "IRON",
+        "DEAD"
+      ]
+    },
+    {
+      "id": "meme_beer",
+      "text": "球可以不懂，酒不能不碰。",
+      "source": "BBTI 隐藏结局",
+      "relatedTypes": [
+        "BEER"
+      ]
+    },
+    {
+      "id": "meme_bnch",
+      "text": "你先坐板凳，等会儿递个水。",
+      "source": "BBTI 兜底人格",
+      "relatedTypes": [
+        "BNCH"
+      ]
+    }
+  ]
+}
