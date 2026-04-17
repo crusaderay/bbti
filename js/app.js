@@ -3,6 +3,13 @@ import { renderGalleryView, renderResultView, normalizeArchetypeImages } from '.
 import { matchPersonality } from './scorer.js';
 import { copyShareText, shareResult } from './share.js';
 import {
+  buildLanguageParams,
+  buildQuizParams,
+  buildResultParams,
+  buildShareParams,
+  trackEvent,
+} from './analytics.js';
+import {
   detectLang,
   setLang,
   loadLocalizedData,
@@ -92,6 +99,10 @@ function activatePage(page) {
   });
   state.page = page;
   window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+function totalQuestions() {
+  return state.data?.questions?.questions?.length ?? 0;
 }
 
 function applyLocaleChrome() {
@@ -232,13 +243,18 @@ function renderGallery() {
   normalizeArchetypeImages(pages[PAGES.GALLERY]);
 }
 
-function startQuiz() {
+function startQuiz(source = 'landing') {
   clearLoadingTimers();
   state.answers = {};
   state.result = null;
   state.currentQuestionIndex = 0;
   renderQuiz();
   activatePage(PAGES.QUIZ);
+  trackEvent('start_quiz', buildQuizParams({
+    lang: state.lang,
+    totalQuestions: totalQuestions(),
+    source,
+  }));
 }
 
 function revealResult() {
@@ -253,6 +269,12 @@ function revealResult() {
   state.result = result;
   renderResult();
   activatePage(PAGES.RESULT);
+  trackEvent('complete_quiz', buildResultParams({
+    lang: state.lang,
+    result,
+    answers: state.answers,
+    totalQuestions: totalQuestions(),
+  }));
 }
 
 function startLoadingSequence() {
@@ -309,7 +331,7 @@ function showResult() {
   activatePage(PAGES.RESULT);
 }
 
-async function handleShareAction(callback) {
+async function handleShareAction(callback, eventName, actionLabel) {
   if (!state.result) return;
 
   const ui = currentUi();
@@ -318,6 +340,11 @@ async function handleShareAction(callback) {
 
   try {
     const text = await callback(state.result, ui);
+    trackEvent(eventName, buildShareParams({
+      lang: state.lang,
+      result: state.result,
+      action: actionLabel,
+    }));
     if (trigger) {
       const original = trigger.textContent;
       trigger.textContent = text ? (resultUi.buttonDone ?? '') : (resultUi.buttonComplete ?? '');
@@ -352,10 +379,17 @@ function selectOption(button) {
 
 async function switchLanguage(nextLang) {
   if (!isSupportedLang(nextLang) || nextLang === state.lang) return;
+  const previousLang = state.lang;
+  const previousPage = state.page;
   setLang(nextLang);
 
   try {
     await bootstrapLang(nextLang);
+    trackEvent('switch_language', buildLanguageParams({
+      from: previousLang,
+      to: state.lang,
+      page: previousPage,
+    }));
     // Preserve what the user was doing when possible.
     switch (state.page) {
       case PAGES.LANDING:
@@ -365,7 +399,7 @@ async function switchLanguage(nextLang) {
         break;
       case PAGES.QUIZ:
         // If the language switched mid-quiz, restart because question set differs.
-        startQuiz();
+        startQuiz('language_switch_restart');
         break;
       case PAGES.LOADING:
         // Loading is ephemeral; bounce back to landing.
@@ -407,7 +441,7 @@ function onClick(event) {
 
   switch (action) {
     case 'start-quiz':
-      startQuiz();
+      startQuiz('landing');
       break;
     case 'show-landing':
       showLanding();
@@ -419,16 +453,16 @@ function onClick(event) {
       showResult();
       break;
     case 'restart-quiz':
-      startQuiz();
+      startQuiz('restart');
       break;
     case 'select-option':
       selectOption(target);
       break;
     case 'share-result':
-      handleShareAction(shareResult);
+      handleShareAction(shareResult, 'generate_share_image', 'download_image');
       break;
     case 'copy-share-text':
-      handleShareAction(copyShareText);
+      handleShareAction(copyShareText, 'copy_share_text', 'copy_text');
       break;
     case 'toggle-lang':
       switchLanguage(otherLang(state.lang));
