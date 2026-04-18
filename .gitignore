@@ -1,2 +1,3 @@
 local_only/
 .~lock.*
+node_modules/

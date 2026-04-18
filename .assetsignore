@@ -1,0 +1,16 @@
+.git
+.gitignore
+.assetsignore
+node_modules
+.wrangler
+dist
+coverage
+*.log
+bun.lock
+bun.lockb
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+local_only
+scripts
+package.json
