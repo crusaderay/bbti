@@ -3,7 +3,7 @@
   "memes": [
     {
       "id": "meme_58",
-      "text": "Only lost by 30? Not even half of a 58.",
+      "text": "Only lost by 50? That is still just 0.86 of a 58.",
       "source": "Suns 140, Hornets 82 · Jan 2009",
       "relatedTypes": [
         "58",
@@ -12,18 +12,18 @@
       ]
     },
     {
-      "id": "meme_goat",
-      "text": "Consensus? Consensus according to whom?",
-      "source": "Any barbershop GOAT debate, anywhere, 1998-present",
+      "id": "meme_majian",
+      "text": "Consensus according to who?",
+      "source": "Every all-time debate, forever",
       "relatedTypes": [
         "GOAT",
         "COAH"
       ]
     },
     {
-      "id": "meme_jrsmith",
-      "text": "Tied game. Ran out the clock. He thought they were up.",
-      "source": "J.R. Smith · 2018 NBA Finals G1",
+      "id": "meme_zhouqi",
+      "text": "HE THOUGHT THEY WERE UP.",
+      "source": "J.R. Smith · 2018 Finals Game 1",
       "relatedTypes": [
         "POLO",
         "DEAD"
@@ -31,8 +31,8 @@
     },
     {
       "id": "meme_kd",
-      "text": "If you can't beat 'em, join 'em.",
-      "source": "KD to Warriors · July 4, 2016",
+      "text": "If you can't beat them, join them.",
+      "source": "KD to the Warriors · 2016",
       "relatedTypes": [
         "BAND",
         "IRON"
@@ -40,8 +40,8 @@
     },
     {
       "id": "meme_tmac",
-      "text": "Never leave the arena early.",
-      "source": "T-Mac · 13 points in 35 seconds · Dec 9, 2004",
+      "text": "Never leave early.",
+      "source": "T-Mac 13 points in 35 seconds · 2004",
       "relatedTypes": [
         "MEDI",
         "CTRL"
@@ -49,17 +49,17 @@
     },
     {
       "id": "meme_process",
-      "text": "Trust The Process.",
-      "source": "76ers tanking era · 2014-2017",
+      "text": "Trust the Process.",
+      "source": "The Sixers tank era · 2014-16",
       "relatedTypes": [
         "TANK",
         "MONK"
       ]
     },
     {
-      "id": "meme_drake",
-      "text": "The Drake Curse is undefeated.",
-      "source": "Courtside jinx lore · 2017-present",
+      "id": "meme_cxk",
+      "text": "First-team all vibes.",
+      "source": "Every fake highlight account ever",
       "relatedTypes": [
         "FAKE",
         "HYPE"
@@ -68,7 +68,7 @@
     {
       "id": "meme_0_27",
       "text": "0-for-27.",
-      "source": "Rockets miss 27 straight threes · 2018 WCF G7",
+      "source": "Rockets vs. Warriors, WCF Game 7 · 2018",
       "relatedTypes": [
         "IRON",
         "DEAD"
@@ -76,7 +76,7 @@
     },
     {
       "id": "meme_beer",
-      "text": "Ball's optional. The cold one's mandatory.",
+      "text": "You do not have to know ball, but you better know what you are drinking.",
       "source": "BBTI hidden ending",
       "relatedTypes": [
         "BEER"
@@ -84,7 +84,7 @@
     },
     {
       "id": "meme_bnch",
-      "text": "Grab a towel. Water boy needs a hand.",
+      "text": "Take a seat at the end of the bench and hand out water.",
       "source": "BBTI fallback archetype",
       "relatedTypes": [
         "BNCH"

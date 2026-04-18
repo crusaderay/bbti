@@ -1,0 +1,10 @@
+{
+  "name": "bbti",
+  "version": "3.0.0",
+  "description": "BBTI (Basketball BTI) — 篮球版 MBTI 人格测试",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "smoke": "node scripts/smoke-test.mjs"
+  }
+}

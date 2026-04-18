@@ -336,6 +336,67 @@ function renderTopMatches(result, ui) {
     .join('');
 }
 
+function renderEvidenceEntry({ label, item, ui }) {
+  if (!item) return '';
+  const resultUi = ui?.result ?? {};
+  const optionTpl = resultUi.evidenceOptionLabelTemplate ?? 'Q{index} · {key}';
+  const optionLabel = interpolate(optionTpl, {
+    index: item.qIndex ?? '',
+    key: item.optKey ?? '',
+  });
+  return `
+    <div class="evidence-entry">
+      <p class="evidence-entry__label">${escapeHtml(label)}</p>
+      <p class="evidence-entry__meta">${escapeHtml(optionLabel)} · ${escapeHtml(item.qTitle ?? '')}</p>
+      <p class="evidence-entry__question">${escapeHtml(item.qText ?? '')}</p>
+      <p class="evidence-entry__option">“${escapeHtml(item.optText ?? '')}”</p>
+    </div>
+  `;
+}
+
+function renderEvidenceCard(result, ui) {
+  const evidence = result.evidence;
+  const resultUi = ui?.result ?? {};
+  if (!evidence || (!evidence.primary && !evidence.secondary && !evidence.rival)) return '';
+
+  const primaryLabel = resultUi.evidencePrimaryLabel ?? 'Top evidence';
+  const secondaryLabel = resultUi.evidenceSecondaryLabel ?? 'Secondary evidence';
+
+  const hasEvidence = evidence.primary || evidence.secondary;
+  const entries = hasEvidence
+    ? [
+        renderEvidenceEntry({ label: primaryLabel, item: evidence.primary, ui }),
+        renderEvidenceEntry({ label: secondaryLabel, item: evidence.secondary, ui }),
+      ].join('')
+    : `<p class="evidence-empty">${escapeHtml(resultUi.evidenceNoneHint ?? '')}</p>`;
+
+  let rivalBlock = '';
+  if (evidence.rival) {
+    const rivalHeading = interpolate(resultUi.rivalHeadingTemplate ?? 'Why not {code}', {
+      code: evidence.rival.code ?? '',
+    });
+    const rivalCopy = evidence.rival.copy || resultUi.rivalDefaultCopy || '';
+    rivalBlock = `
+      <div class="evidence-rival">
+        <p class="eyebrow">${escapeHtml(resultUi.rivalEyebrow ?? '')}</p>
+        <h4>${escapeHtml(rivalHeading)}</h4>
+        <p class="body-copy">${escapeHtml(rivalCopy)}</p>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="card card--evidence">
+      <p class="eyebrow">${escapeHtml(resultUi.evidenceEyebrow ?? '')}</p>
+      <h3>${escapeHtml(resultUi.evidenceHeading ?? '')}</h3>
+      <div class="evidence-list">
+        ${entries}
+      </div>
+      ${rivalBlock}
+    </article>
+  `;
+}
+
 function renderPersonalBullets(result) {
   return (result.personalReadout?.bullets ?? [])
     .map(
@@ -367,6 +428,7 @@ export function renderResultView({ result, dimensions, meme, ui }) {
   const analysisHeading = interpolate(resultUi.analysisHeadingTemplate ?? '', {
     name: archetype.name ?? '',
   });
+  const shareBadges = Array.isArray(resultUi.shareBadges) ? resultUi.shareBadges : [];
 
   return `
     <div class="result-layout">
@@ -384,8 +446,27 @@ export function renderResultView({ result, dimensions, meme, ui }) {
           </div>
         </div>
         <blockquote class="quote-card">“${escapeHtml(archetype.quote)}”</blockquote>
-        <div class="action-row">
-          <button class="button button--primary" type="button" data-action="share-result">${escapeHtml(resultUi.shareImageButton ?? '')}</button>
+        <section class="share-spotlight" aria-label="${escapeHtml(resultUi.shareEyebrow ?? '')}">
+          <div class="share-spotlight__copy">
+            <p class="eyebrow">${escapeHtml(resultUi.shareEyebrow ?? '')}</p>
+            <h3>${escapeHtml(resultUi.shareHeading ?? '')}</h3>
+            <p class="body-copy">${escapeHtml(resultUi.shareBody ?? '')}</p>
+            ${
+              shareBadges.length > 0
+                ? `
+                  <div class="share-spotlight__badges">
+                    ${shareBadges.map((badge) => `<span>${escapeHtml(badge)}</span>`).join('')}
+                  </div>
+                `
+                : ''
+            }
+          </div>
+          <button class="button button--primary button--share-hero button--pulse" type="button" data-action="share-result">
+            <span class="button__label">${escapeHtml(resultUi.shareImageButton ?? '')}</span>
+            <small class="button__subcopy">${escapeHtml(resultUi.shareImageSubcopy ?? '')}</small>
+          </button>
+        </section>
+        <div class="action-row action-row--secondary">
           <button class="button" type="button" data-action="copy-share-text">${escapeHtml(resultUi.copyTextButton ?? '')}</button>
           <button class="button" type="button" data-action="restart-quiz">${escapeHtml(resultUi.restartButton ?? '')}</button>
           <button class="button" type="button" data-action="open-gallery">${escapeHtml(resultUi.galleryButton ?? '')}</button>
@@ -406,6 +487,8 @@ export function renderResultView({ result, dimensions, meme, ui }) {
             ${renderModelBars(result)}
           </div>
         </article>
+
+        ${renderEvidenceCard(result, ui)}
 
         <article class="card">
           <p class="eyebrow">${escapeHtml(resultUi.analysisEyebrow ?? '')}</p>

@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "vectorOrder": [
     "B1",
     "B2",
@@ -22,10 +22,10 @@
       "index": 1,
       "code": "BNCH",
       "name": "The Waterboy",
-      "shortDesc": "System fallback — you probably don't even watch hoops.",
-      "rarity": "Ultra Rare",
-      "fullDesc": "Congrats. The system flipped through 25 fan archetypes and none of them fit. You were probably dragged here by a friend, or you thought this was a link to an NBA 2K roster update. No hard feelings — somebody has to warm the end of the bench.",
-      "quote": "\"Basketball? I thought this was a sneaker quiz.\"",
+      "shortDesc": "You mostly experience basketball through friends, memes, and unfortunate proximity.",
+      "rarity": "Ultra rare",
+      "fullDesc": "Basketball mostly happens around you, not inside you. You know enough to nod at the right moments and maybe ask a safe question, but not enough for your pulse to change when somebody starts yelling about legacy, officiating, or lottery odds.",
+      "quote": "Wait, tip-off already? I thought we were just hanging out.",
       "playerArchetype": null,
       "teamArchetype": "The two-way contract guy who gets waived in training camp.",
       "vector": [
@@ -46,32 +46,56 @@
         2
       ],
       "isSpecial": true,
-      "note": "Fallback archetype",
-      "triggerCondition": "User vector's minimum Manhattan distance to all 25 standard archetypes > threshold 18"
+      "note": "Fallback archetype (hybrid fallback)",
+      "triggerCondition": "Triggered when the top score is too weak to claim a real type, when the top two are too close with too little signature evidence, or when the quiz is left blank.",
+      "vector5": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "FAKE",
+        "OJBK"
+      ],
+      "contrast": {
+        "FAKE": "The Finals-only fan at least wakes up for big moments. You do not even do that.",
+        "OJBK": "OJBK can at least hang in any hoops conversation. You cannot fake that much range."
+      }
     },
     {
       "index": 2,
       "code": "BEER",
       "name": "The Six-Pack Spectator",
-      "shortDesc": "Hidden ending: the cold ones took over your fan arc.",
-      "rarity": "Ultra Rare",
-      "fullDesc": "For you, basketball is just a socially acceptable reason to crack a beer. Tip-off? Crack one. TV timeout? Crack one. Slow-mo replay? Go ahead, crack one. By the third quarter you've lost track of the score, but you're absolutely certain tonight is a great night.",
-      "quote": "\"I'm not here for the ball. I'm here to watch the ball while I drink.\"",
+      "shortDesc": "For you, the game is half basketball and half drinking event with a scoreboard attached.",
+      "rarity": "Ultra rare",
+      "fullDesc": "You treat basketball like a social function that just happens to involve rebounds and defensive breakdowns. Tip-off is the signal to crack something open, the second quarter is when your volume gets irresponsible, and by the fourth you are fully arguing with the television like it insulted your family.",
+      "quote": "Do not tip it yet. I need to open one more.",
       "playerArchetype": null,
       "teamArchetype": "Milwaukee Bucks. Milwaukee = Beer City. Destiny.",
       "vector": null,
       "isSpecial": true,
-      "note": "Hidden archetype",
-      "triggerCondition": "Q25 answer D (required) AND F1 ≥ M"
+      "note": "Hidden archetype (final-question special trigger)",
+      "triggerCondition": "Requires Q17 = D, Heat/F at band 2 or above, and no other archetype reaching 12 or more signature points.",
+      "vector5": null,
+      "rivals": [
+        "HYPE",
+        "FIRE"
+      ],
+      "contrast": {
+        "HYPE": "The vibes captain is hyped for the game. You are hyped for the drinking.",
+        "FIRE": "The fire-everyone guy is yelling because he cares. You are yelling and forgetting why by tomorrow."
+      }
     },
     {
       "index": 3,
       "code": "GOAT",
       "name": "The GOAT Arbiter",
-      "shortDesc": "Reigning champion of the barbershop GOAT debate.",
+      "shortDesc": "Every basketball conversation within range eventually becomes your latest all-time ranking.",
       "rarity": "Rare",
-      "fullDesc": "Your entire sense of purpose hinges on proving \"___ is the GOAT.\" Your bookmarks folder has 37 all-time rankings threads and you left a different top-10 under every one of them. You're either in a GOAT debate or on your way to a GOAT debate. Skip Bayless has a softer opinion than you.",
-      "quote": "\"Your ranking is wrong. Here — let me fix it.\"",
+      "fullDesc": "Nobody gets to say something nice about a player around you without accidentally reopening the all-time list. One compliment becomes peak-versus-longevity, then rings, then supporting cast, then suddenly the room is trapped inside your tenth revision of the top ten.",
+      "quote": "Give me ten seconds. I need to rework the top ten first.",
       "playerArchetype": "Depends on the day you ask — Monday it's Jordan, Wednesday LeBron, Friday Kobe, weekends TBD.",
       "teamArchetype": null,
       "vector": [
@@ -93,16 +117,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        2,
+        2,
+        2,
+        3
+      ],
+      "rivals": [
+        "STAT",
+        "MVP"
+      ],
+      "contrast": {
+        "STAT": "The stats guy brings spreadsheets. You bring rankings.",
+        "MVP": "The stat-padding cop questions the numbers. You skip straight to legacy."
+      }
     },
     {
       "index": 4,
       "code": "IRON",
       "name": "The Brick Prophet",
-      "shortDesc": "The bigger the pre-game flag, the louder the post-game face-plant.",
+      "shortDesc": "You talk with prophet confidence and jinx-with-receipts timing.",
       "rarity": "Rare",
-      "fullDesc": "You are the Westbrook of hot takes — loud before tip, humbled by the final buzzer. \"We're winning by 30 tonight\" — lost by 15. \"This series is a sweep\" — got reverse-swept. You never learn, because \"next time it'll land for sure.\" Remember 0-for-27? That's your spirit stat line.",
-      "quote": "\"Pre-game predictions are meant to get you clowned.\"",
+      "fullDesc": "You call games early, loudly, and with complete emotional commitment. \"We are winning by 20.\" \"Series over.\" \"Book the parade.\" Then the game flips, your old messages get screenshotted, and now you are the evening's entertainment.",
+      "quote": "Lock it in. Actually hold on, let me delete that.",
       "playerArchetype": "A supercut of iron. 2018 WCF Game 7 Rockets, 0-for-27 from three. Yeah, that one.",
       "teamArchetype": null,
       "vector": [
@@ -124,16 +163,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        3,
+        3,
+        2,
+        3
+      ],
+      "rivals": [
+        "CTRL",
+        "HYPE"
+      ],
+      "contrast": {
+        "CTRL": "The oracle actually calls things. You call them and get clipped for it later.",
+        "HYPE": "The vibes captain hypes things up for fun. You genuinely believe your own jinxes."
+      }
     },
     {
       "index": 5,
       "code": "TANK",
       "name": "The Process Truther",
-      "shortDesc": "Card-carrying disciple of Trust The Process.",
+      "shortDesc": "A loss feels bad for other people. For you, it can feel productive.",
       "rarity": "Rare",
-      "fullDesc": "\"Trust The Process\" isn't a slogan, it's a theology. Team loses? \"We need lottery odds.\" Team on a skid? \"Top pick incoming, beautiful.\" Team wins? \"NO — you just killed our draft position. This win is a historic disaster.\" You celebrate ping-pong balls harder than playoff wins.",
-      "quote": "\"We trust the process. Losses are part of winning.\"",
+      "fullDesc": "A normal fan sees a loss and thinks, this stinks. You see a loss and start doing draft-position math. One useless March win can annoy you for days. A ten-game skid can feel like the franchise finally making responsible choices.",
+      "quote": "Do not win tonight. Think long-term.",
       "playerArchetype": null,
       "teamArchetype": "2014-2016 Philadelphia 76ers — the patron saints of tanking.",
       "vector": [
@@ -155,16 +209,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "rivals": [
+        "DEAD",
+        "MONK"
+      ],
+      "contrast": {
+        "DEAD": "The ride-or-die fan sees a loss as a loss. You turn it into draft equity.",
+        "MONK": "The zen fan stays calm all the time. You only find peace when the team loses correctly."
+      }
     },
     {
       "index": 6,
       "code": "COAH",
       "name": "The Armchair Coach",
-      "shortDesc": "Draws up sets like Pop, couldn't cross up a traffic cone.",
+      "shortDesc": "You have fired a thousand coaches from the couch and still think you could do it better.",
       "rarity": "Uncommon",
-      "fullDesc": "You've never coached a game in your life, but you are quietly certain you'd do better than whoever's on the sideline. Timeouts are your showtime: \"SUB HIM OUT!\" \"WHY AREN'T WE IN A 2-3?!\" \"Execution this bad, I've seen AAU teams sharper!\" Your whiteboard diagrams slap. Actually running a huddle? You couldn't signal a timeout without fumbling it.",
-      "quote": "\"Put me in — I mean as the coach.\"",
+      "fullDesc": "Timeouts belong to you in spirit. Rotations belong to you in principle. Every late-game possession becomes a fresh opportunity to point at the screen and explain exactly what should have happened two passes ago.",
+      "quote": "Put me in. Not at point guard. On the sideline.",
       "playerArchetype": "You see Pop in the mirror. The league sees a mid-season interim getting fired by All-Star break.",
       "teamArchetype": null,
       "vector": [
@@ -186,16 +255,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        2,
+        1,
+        2,
+        2
+      ],
+      "rivals": [
+        "FIRE",
+        "STAT"
+      ],
+      "contrast": {
+        "FIRE": "The fire-everyone guy focuses on who should be gone. You focus on what should have been run.",
+        "STAT": "The analytics guy throws numbers at the problem. You throw sets and rotations at it."
+      }
     },
     {
       "index": 7,
       "code": "STAT",
       "name": "The Analytics Enforcer",
-      "shortDesc": "Wins every argument with a Basketball Reference screenshot.",
+      "shortDesc": "You do not trust vibes when a spreadsheet exists.",
       "rarity": "Uncommon",
-      "fullDesc": "Your arsenal isn't trash talk, it's spreadsheets. You don't watch games with your eyes — you watch them through Basketball Reference. Your debate style is a screenshot: PER, BPM, VORP, WS/48, RAPTOR, EPM. The other side is still forming a sentence and you've already closed the thread. The only risk is you've forgotten basketball is a sport, not a regression.",
-      "quote": "\"Don't tell me what you saw. Show me the number.\"",
+      "fullDesc": "While everybody else is talking about killer instinct, confidence, and \"you just had to watch it,\" you are already opening tabs. TS%, on/off, matchup data, shot profile, opponent quality: if the conversation cannot survive contact with numbers, you do not think much of the conversation.",
+      "quote": "Do not tell me how it felt. Show me the numbers.",
       "playerArchetype": "Your spirit animal isn't a player — it's Daryl Morey.",
       "teamArchetype": null,
       "vector": [
@@ -217,16 +301,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "rivals": [
+        "COAH",
+        "MVP"
+      ],
+      "contrast": {
+        "COAH": "The couch coach wants to talk scheme. You want to talk numbers.",
+        "MVP": "The stat-padding cop distrusts the data. You trust it more than people."
+      }
     },
     {
       "index": 8,
       "code": "58",
       "name": "Mr. 58-Point Benchmark",
-      "shortDesc": "Measures every blowout against Suns-Hornets, January 2009.",
+      "shortDesc": "Every ugly score has to pass through your private 58-point conversion table.",
       "rarity": "Uncommon",
-      "fullDesc": "You're a blowout pedant. Any lopsided score gets dragged to your measuring stick: \"Only lost by 30? Not even half of a 58.\" \"Won by 40? Still 18 shy of 58, nothing burger.\" Chris Paul can retire. 58 never retires.",
-      "quote": "\"I'll never forget CP3's face that night.\" (You watched the box score the next morning.)",
+      "fullDesc": "In your head, 58 is not just a score anymore. It is a measuring device. Every blowout gets dragged back to that Chris Paul disaster like it is the official unit of basketball humiliation.",
+      "quote": "Only lost by 50? That is still just 0.86 of a 58.",
       "playerArchetype": "You are the 2009 Phoenix Suns — always on the side doing the curb-stomping, never the side on the floor.",
       "teamArchetype": null,
       "vector": [
@@ -248,16 +347,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        2,
+        2,
+        1,
+        3
+      ],
+      "rivals": [
+        "POLO",
+        "MEDI"
+      ],
+      "contrast": {
+        "POLO": "POLO treats the bit like annual trauma. You treat it like a measurement system.",
+        "MEDI": "The McGrady type is romantic about miracles. You are doing scoreboard accounting."
+      }
     },
     {
       "index": 9,
       "code": "BAND",
       "name": "The Bandwagon Ace",
-      "shortDesc": "Whoever's winning the chip is your team this year.",
+      "shortDesc": "Your fandom history looks suspiciously similar to a title timeline.",
       "rarity": "Uncommon",
-      "fullDesc": "Your allegiance rotates with the Larry O'Brien. 2016 you were a Cavs fan. 2017 you flipped to Warriors. 2021 you were Bucks-in-six. 2023 you swore you'd been a Nuggets fan the whole time. People call you a fraud. You call it \"embracing excellence.\" Your jersey drawer is suspiciously well-curated.",
-      "quote": "\"I'm not chasing rings, I'm chasing the beauty of the game.\"",
+      "fullDesc": "Your team has a funny habit of being whichever team currently looks smartest, deepest, or most likely to be covered in confetti two months from now. New wallpaper, new jersey, new explanation for why this contender just happens to fit your values perfectly.",
+      "quote": "I am not chasing rings. I am appreciating excellence.",
       "playerArchetype": "You are KD's spiritual descendant — he jumped to four teams, you jumped to fourteen.",
       "teamArchetype": null,
       "vector": [
@@ -279,16 +393,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "FAKE",
+        "OJBK"
+      ],
+      "contrast": {
+        "FAKE": "The Finals-only fan barely watches. You watch plenty, just always from the winner side.",
+        "OJBK": "OJBK truly does not care who wins. You care a lot. You just prefer to be right."
+      }
     },
     {
       "index": 10,
       "code": "POLO",
       "name": "The Kiss of Death",
-      "shortDesc": "A walking reverse-jinx in clutch moments.",
+      "shortDesc": "The moment you declare something safe, the universe starts scripting disaster.",
       "rarity": "Uncommon",
-      "fullDesc": "Whenever it matters, you find a new way to cost your team. You tweet the wrong score, you show up courtside and watch the blowout, you buy the jersey of the guy who tears his ACL the next week. You are the anti-rally towel. Group chat has officially muted you in the fourth quarter.",
-      "quote": "\"Not my fault — fate just picked me.\" (inbounds pass to the other team.gif)",
+      "fullDesc": "You are not trying to doom your team. That would almost be easier to explain. The problem is that every time you tweet \"we are good\" or post something prematurely confident, reality immediately starts looking for a way to embarrass you.",
+      "quote": "I did not jinx it. I just happened to be there when it broke.",
       "playerArchetype": "J.R. Smith running out the clock in a tied NBA Finals game. Forever.",
       "teamArchetype": null,
       "vector": [
@@ -310,16 +439,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "rivals": [
+        "58",
+        "MEDI"
+      ],
+      "contrast": {
+        "58": "The 58 guy turns pain into math. You turn it into an anniversary.",
+        "MEDI": "The McGrady type keeps miracle memories alive. Your favorite replay is a disaster clip."
+      }
     },
     {
       "index": 11,
       "code": "SALT",
       "name": "The Hater in Chief",
-      "shortDesc": "Other team wins and you take it worse than their fans.",
+      "shortDesc": "Your emotional well-being is heavily indexed to one specific rival failing.",
       "rarity": "Uncommon",
-      "fullDesc": "Their ring hurts. Their comeback hurts. Their star's 50-burger hurts most of all. Your joy doesn't come from your team winning — it comes from the team you hate losing. You're technically a stan. You just stan the hate. Your KPIs are set by the enemy's box score.",
-      "quote": "\"Wins? Look at their schedule first.\"",
+      "fullDesc": "You do not always need your own team to win in order to feel joy. Sometimes it is enough for the team you hate to lose. Sometimes, if we are being honest, it is even better.",
+      "quote": "Sure, they won. Still a fraudulent path though.",
       "playerArchetype": "The star you hate most (you know his splits better than his real fans).",
       "teamArchetype": null,
       "vector": [
@@ -341,16 +485,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        3,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "REF",
+        "FIRE"
+      ],
+      "contrast": {
+        "REF": "The ref truther blames the whistle. You just cannot stand other people being happy.",
+        "FIRE": "The fire-everyone guy unloads on his own team. You save most of your venom for somebody else."
+      }
     },
     {
       "index": 12,
       "code": "REF",
       "name": "The Ref Truther",
-      "shortDesc": "Every loss has a whistle-shaped reason.",
+      "shortDesc": "A bad whistle is never random to you. It is evidence.",
       "rarity": "Uncommon",
-      "fullDesc": "In your world, the NBA has never officiated a fair game. Wins are earned, losses are rigged. You slow-mo every 50/50 call and conclude: league + refs + sportsbooks are a three-headed cartel. You've emailed the league office 47 times. No reply.",
-      "quote": "\"Hold on, let me go frame-by-frame — see? His toe's on the line. The league won't act so I will.\"",
+      "fullDesc": "To you, a missed call is never just one bad call. It belongs in a chain. There is always a previous example, a suspicious pattern, a too-convenient outcome, and a replay angle that mysteriously makes everything look worse.",
+      "quote": "Wait, run it back at quarter speed. There it is.",
       "playerArchetype": "You are the self-appointed chair of the Citizens' Officiating Review Board.",
       "teamArchetype": null,
       "vector": [
@@ -372,16 +531,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        3,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "SALT",
+        "FIRE"
+      ],
+      "contrast": {
+        "SALT": "The hater-in-chief is jealous of the other side. You are laser-focused on the whistle.",
+        "FIRE": "The fire-everyone guy blames the coach. You blame the officials."
+      }
     },
     {
       "index": 13,
       "code": "FIRE",
       "name": "The Fire-Everyone Guy",
-      "shortDesc": "\"Coach out! GM out! Owner sell the team!\"",
+      "shortDesc": "When things go bad, your first instinct is to start firing people in batches.",
       "rarity": "Uncommon",
-      "fullDesc": "Your entire solution-space has one verb: fire. Coach slumps? Fire him. GM drafts bad? Fire him. Star underperforms? Trade (fire, in contract form). Owner inert? Sell the team (the boss-level fire). Every post you've ever written can be summarized as \"___ has to go.\"",
-      "quote": "\"Three-game skid and the coach is STILL here? What are we waiting for, a sweep?\"",
+      "fullDesc": "For you, every basketball problem belongs to the same solution family: fire the coach, trade the soft guys, dump the front office, sell the team, start over. Nuance slows the process down. You prefer names, blame, and immediate action.",
+      "quote": "Three straight losses and everybody still has a job?",
       "playerArchetype": "You are the unofficial GM. None of your trade machines clear the cap.",
       "teamArchetype": null,
       "vector": [
@@ -403,16 +577,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        3,
+        2,
+        2
+      ],
+      "rivals": [
+        "COAH",
+        "REF"
+      ],
+      "contrast": {
+        "COAH": "The couch coach wants to talk basketball. You want to talk firings.",
+        "REF": "The ref truther blames the whistle. You blame the people getting paid to run the team."
+      }
     },
     {
       "index": 14,
       "code": "DUNK",
       "name": "The Highlight Disciple",
-      "shortDesc": "Dunks only. Defense is a rumor.",
+      "shortDesc": "If nobody got put on a poster, part of you thinks the game was spiritually incomplete.",
       "rarity": "Uncommon",
-      "fullDesc": "Pick-and-rolls, off-ball movement, defensive rotations? Never heard of them. You came for two things: dunks and blocks. No one takes flight for 48 minutes, you feel robbed. Your YouTube history is 100% mixtapes. You can distinguish a windmill, a tomahawk, and a free-throw-line launch down to the millisecond — but you don't know your starting point guard's first name.",
-      "quote": "\"Defense? That's coach stuff. I'm here for the poster.\"",
+      "fullDesc": "You can respect shooting and spacing in theory, but what you really came for is violence at the rim. One clean poster does more for your soul than six possessions of beautiful half-court execution.",
+      "quote": "That was nice, but did anybody get baptized?",
       "playerArchetype": "Vince Carter, Zach LaVine, Aaron Gordon — eternal dunk contest gods.",
       "teamArchetype": null,
       "vector": [
@@ -434,16 +623,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "3PTR",
+        "HYPE"
+      ],
+      "contrast": {
+        "3PTR": "The logo-shot believer chases deep-ball beauty. You want violence at the rim.",
+        "HYPE": "The vibes captain gets loud for the post. You get loud for the dunk itself."
+      }
     },
     {
       "index": 15,
       "code": "3PTR",
       "name": "The Logo-Shot Evangelist",
-      "shortDesc": "Curry hits = religion. Anyone else = luck.",
+      "shortDesc": "Deep threes are not all equal in your mind. Steph has his own category.",
       "rarity": "Uncommon",
-      "fullDesc": "You preach the gospel of Stephen Curry. Any three-point make anywhere traces back to him: \"See? Curry changed the whole league.\" What you live for is that 0.8 seconds the ball is in the air — you already know. You've copied his release form religiously. You convert at 1/10 the rate.",
-      "quote": "\"That's not a three. When Curry takes it from there, it's a logo shot.\"",
+      "fullDesc": "You do not just like three-point shooting. You believe in it, and more specifically, you believe in a very particular, very holy form of it that begins with Steph and, in your opinion, mostly ends there too.",
+      "quote": "When he takes it from there, that is not a bad shot. That is doctrine.",
       "playerArchetype": "Steph Curry. End of list.",
       "teamArchetype": null,
       "vector": [
@@ -465,16 +669,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "DUNK",
+        "MEDI"
+      ],
+      "contrast": {
+        "DUNK": "The dunk disciple wants bodies on posters. You want the ball hanging forever in the air.",
+        "MEDI": "The McGrady believer chases miracles. You chase shot-making religion."
+      }
     },
     {
       "index": 16,
       "code": "MEDI",
       "name": "The Buzzer-Beater Believer",
-      "shortDesc": "A hopeless romantic who never leaves the arena early.",
+      "shortDesc": "You never fully believe a game is over because miracles have already rewired your brain.",
       "rarity": "Uncommon",
-      "fullDesc": "You are basketball's last romantic. You believe in comebacks, you believe in miracles, you believe in the last-second dagger. 30 seconds left, down 12, everyone else turned off the TV — you're still saying \"35 seconds, 13 points, remember?\" It's only happened once in NBA history. You're sure tonight is the second.",
-      "quote": "\"Never underestimate the heart of a champion.\" (You know Dame said it too.)",
+      "fullDesc": "Down twelve late is not a death sentence to you. It is an invitation to remember every insane comeback clip that ever lodged itself in your brain and convinced you that no broadcast is truly safe to leave early.",
+      "quote": "Do not turn it off. Weird things happen fast.",
       "playerArchetype": "T-Mac (35 seconds, 13 points) + Reggie Miller (8 points, 8.9 seconds) + every game-winner ever cut.",
       "teamArchetype": null,
       "vector": [
@@ -496,16 +715,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "3PTR",
+        "POLO"
+      ],
+      "contrast": {
+        "3PTR": "The logo-shot believer worships range. You worship ridiculous endings.",
+        "POLO": "POLO keeps reliving trauma. You keep reliving fairy tales."
+      }
     },
     {
       "index": 17,
       "code": "DEAD",
       "name": "The Ride-or-Die Martyr",
-      "shortDesc": "If the team folds, you go down with the ship.",
+      "shortDesc": "If the team goes down, you go down with them. That is the contract.",
       "rarity": "Uncommon",
-      "fullDesc": "You and your team signed a soul contract. Penalty for breaking it: next lifetime. Team relocates? You move with them. Team rebrands? You rename your group chat. Team tanks 20 years? You've been there 20 years. When a friend asks why you don't switch, you look at them the way J.R. Smith looked at that pass — baffled but still in love.",
-      "quote": "\"I'm not leaving. They need me.\" (glances at the 30-loss streak)",
+      "fullDesc": "You are not switching teams. Not after the bad years, not during the bad years, not if the bad years somehow become their own geological period. You can complain about the roster, drag the coach, roast ownership, and still refuse to walk away.",
+      "quote": "I am not leaving. Somebody has to stay and suffer correctly.",
       "playerArchetype": null,
       "teamArchetype": "Die-hards for the Kings, Hornets, Pistons, or any perennially-cooked franchise.",
       "vector": [
@@ -527,16 +761,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "rivals": [
+        "TANK",
+        "MONK"
+      ],
+      "contrast": {
+        "TANK": "The tanker can smile through a loss. You just endure it.",
+        "MONK": "The zen fan genuinely stays detached. You are attached all the way down."
+      }
     },
     {
       "index": 18,
       "code": "SOLO",
       "name": "The Lone Wolf Spectator",
-      "shortDesc": "Watches alone, breaks it down alone, argues alone.",
+      "shortDesc": "You like your basketball quiet, private, and free of extra commentary.",
       "rarity": "Uncommon",
-      "fullDesc": "You don't need company to watch hoops. You've got your own framework, immune to peer pressure. Someone says your guy's mid? You smile. Someone's flaming in the group chat? You lurk, then log off. You're the lone wolf of fandom — except unlike Luka, you can't even be bothered to yell at the refs.",
-      "quote": "\"I watch alone. I enjoy it alone. Don't need anyone to co-sign.\"",
+      "fullDesc": "You do not hate people. You just think most of them make watching basketball worse. Watch parties talk through possessions. Group chats flatten moments before you can think about them. Somebody always needs something explained.",
+      "quote": "I do not need company to know what I just watched.",
       "playerArchetype": "Mamba mentality, west-coast edition — alone in the gym at 4am (you're alone watching 4am tip-offs on League Pass).",
       "teamArchetype": null,
       "vector": [
@@ -558,16 +807,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "rivals": [
+        "HYPE",
+        "MONK"
+      ],
+      "contrast": {
+        "HYPE": "The vibes captain needs the post to feel complete. You do not need witnesses.",
+        "MONK": "The zen fan drifts above it all. You actively choose to watch alone."
+      }
     },
     {
       "index": 19,
       "code": "MVP",
       "name": "The Stat-Padding Auditor",
-      "shortDesc": "\"He's a stat-padder. You're a stat-padder. Everybody's a stat-padder.\"",
+      "shortDesc": "Every huge scoring night gets an immediate asterisk check from you.",
       "rarity": "Uncommon",
-      "fullDesc": "Your one great talent: pointing out that a player is stat-padding. Triple-double? Padded. Fifty-burger? Padded. \"He's still in with a 20-point lead in the fourth — how is that not padding?\" Every box score goes under your microscope — except your guy's. That's just \"efficient scoring.\"",
-      "quote": "\"Is this stat line real though? Open NBA.com, let me pull the garbage-time filter.\"",
+      "fullDesc": "Big counting stats do not move you on their own. Somebody drops 40 and the room starts celebrating. You are already checking pace, usage, shot diet, opponent quality, and how much of that damage happened after the game had already gone soft.",
+      "quote": "Forty is cute. Open the garbage-time filter.",
       "playerArchetype": "Westbrook's averaged-triple-double season — the original padding vs. production flame war.",
       "teamArchetype": null,
       "vector": [
@@ -589,16 +853,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "STAT",
+        "GOAT"
+      ],
+      "contrast": {
+        "STAT": "The analytics guy trusts the numbers. You interrogate them.",
+        "GOAT": "The GOAT debater skips straight to legacy. You stop first to ask how fake the stat line was."
+      }
     },
     {
       "index": 20,
       "code": "CTRL",
       "name": "The 'Called It' Oracle",
-      "shortDesc": "Predictions land clean. Screenshots filed for later.",
-      "rarity": "Fairly Common",
-      "fullDesc": "Your hit rate on pre-game picks is suspicious. \"We win by 7\" — won by 8. \"Series goes 4-2\" — series went 4-2. You never screenshot your calls in advance because, you know, humility. But when someone else's take blows up, you always happen to drop a casual \"told you.\"",
-      "quote": "\"I called this weeks ago. Scroll up.\"",
+      "shortDesc": "You love being right early almost as much as you love the game itself.",
+      "rarity": "Fairly common",
+      "fullDesc": "Predictions are not little throwaway comments to you. They are investments. If one hits, you are not moving on until everyone in the chat has acknowledged that you called it before the rest of the herd caught on.",
+      "quote": "Scroll up. I said this was coming.",
       "playerArchetype": "Paul the Octopus, but for basketball.",
       "teamArchetype": null,
       "vector": [
@@ -620,16 +899,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        2,
+        1,
+        2,
+        2
+      ],
+      "rivals": [
+        "STAT",
+        "IRON"
+      ],
+      "contrast": {
+        "STAT": "The analytics guy wins arguments with numbers. You win them with receipts from the past.",
+        "IRON": "The brick prophet gets caught being wrong. You get to say you told them so."
+      }
     },
     {
       "index": 21,
       "code": "FAKE",
       "name": "The Finals-Only Fan",
-      "shortDesc": "Only visible during the Finals. Still asks \"who's winning?\"",
-      "rarity": "Fairly Common",
-      "fullDesc": "You appear in June like a cicada. Twenty minutes into Game 7 you post on Instagram: \"who's winning?\" with a random courtside photo you pulled off Google. You know players by name, not by position. That never stops you from tweeting \"[champion] on top! Been here since day one!\" the second the trophy is lifted.",
-      "quote": "\"Is #23 LeBron or Jordan?\"",
+      "shortDesc": "You reappear when the lights get bright and disappear when the schedule gets ordinary.",
+      "rarity": "Fairly common",
+      "fullDesc": "You are not around all year, and you are not pretending otherwise. Finals season, Christmas, big trades, legacy arguments, maybe one or two marquee games if the timeline gets loud enough. The rest of the calendar barely knows you.",
+      "quote": "Wait, is number 23 LeBron or Jordan in this context?",
       "playerArchetype": "You're the target audience for every Drake Instagram Story. Champagne Papi, champagne podium.",
       "teamArchetype": null,
       "vector": [
@@ -651,16 +945,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "rivals": [
+        "BAND",
+        "BNCH"
+      ],
+      "contrast": {
+        "BAND": "The bandwagon fan actually stays tuned in. You mainly reappear when the lights are brightest.",
+        "BNCH": "The bench-seat type cannot even catch the references. You at least know the big ones."
+      }
     },
     {
       "index": 22,
       "code": "HYPE",
       "name": "The Vibes Captain",
-      "shortDesc": "Score is irrelevant. The story goes up either way.",
-      "rarity": "Fairly Common",
-      "fullDesc": "You don't watch for the game, you watch for the vibe. You're the Instagram story anchor, the group chat spam engine, the barbershop energy source. The ball could be on fire — what matters is the room. Your shared highlights are always three exclamation points and a caps-lock line.",
-      "quote": "\"WE UP!!! WHO'S WATCHING!!! WE GOTTA GET THIS ONE!!!\"",
+      "shortDesc": "The basketball matters, but the chat reaction, screenshots, and energy matter almost as much.",
+      "rarity": "Fairly common",
+      "fullDesc": "For you, the game is only half the event. The other half is the all-caps reaction, the first screenshot, the perfectly timed post, the little social explosion that proves everybody else felt it too.",
+      "quote": "Huge shot. Bigger group-chat moment.",
       "playerArchetype": "You're the NBA's hype man — no flip, plenty of shout.",
       "teamArchetype": null,
       "vector": [
@@ -682,16 +991,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "rivals": [
+        "SOLO",
+        "ATM"
+      ],
+      "contrast": {
+        "SOLO": "The lone watcher does not need anyone else there. You do.",
+        "ATM": "The spender proves love with receipts. You prove it with volume and screenshots."
+      }
     },
     {
       "index": 23,
       "code": "MONK",
       "name": "The Zen Spectator",
-      "shortDesc": "No highs, no lows, just hoops flowing through you.",
-      "rarity": "Fairly Common",
-      "fullDesc": "Win, lose, blowout, buzzer-beater — your emotional range is a flatline. Twenty years of basketball and the EKG never spikes. Someone asks \"how'd they play last night?\" You say \"alright.\" Someone tells you your team got buzzered? \"Mm.\" You're not numb. You've transcended. Mostly because your team hasn't won anything in two decades.",
-      "quote": "\"Whatever happens, happens. I'll catch the next one.\"",
+      "shortDesc": "You care about basketball without letting it hijack your nervous system.",
+      "rarity": "Fairly common",
+      "fullDesc": "Bad loss? Tough. Great win? Nice. Wild finish? Interesting. You are engaged, but never fully captured, which makes you look alien inside fan spaces built on overreaction.",
+      "quote": "If I catch it, great. If not, life continues.",
       "playerArchetype": null,
       "teamArchetype": "Sacramento Kings fans pre-2023 — 16 straight years out of the playoffs teaches you things.",
       "vector": [
@@ -713,16 +1037,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "rivals": [
+        "DEAD",
+        "OJBK"
+      ],
+      "contrast": {
+        "DEAD": "The ride-or-die fan keeps suffering on purpose. You are too detached for that.",
+        "OJBK": "OJBK really has no strong preference. You are calm because you refuse to over-invest."
+      }
     },
     {
       "index": 24,
       "code": "ATM",
       "name": "The League Pass ATM",
-      "shortDesc": "Jerseys, kicks, rookie cards — if money equals love, you're a saint.",
-      "rarity": "Fairly Common",
-      "fullDesc": "Your love language is checkout. Authentic jersey? At least two per season (home and away). Sneakers? Your closet gave up. Rookie cards? You research Panini grading like Wall Street comps. Courtside once a year, minimum. Your fandom is fully quantified. Six digits, give or take.",
-      "quote": "\"This isn't spending. It's investing in belief.\"",
+      "shortDesc": "Your fandom absolutely has a transaction history.",
+      "rarity": "Fairly common",
+      "fullDesc": "League Pass, jerseys, sneakers, tickets, random collabs, collector nonsense you definitely did not need but bought anyway — your love of basketball leaves a paper trail.",
+      "quote": "This is not overspending. This is supporting the cause.",
       "playerArchetype": "The NBA's favorite kind of fan: terminal consumer.",
       "teamArchetype": null,
       "vector": [
@@ -744,16 +1083,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "HYPE",
+        "HOOP"
+      ],
+      "contrast": {
+        "HYPE": "The vibes captain posts through the love. You pay through it.",
+        "HOOP": "The pickup hero proves love by playing. You prove it by buying."
+      }
     },
     {
       "index": 25,
       "code": "HOOP",
-      "name": "The Pickup Legend",
-      "shortDesc": "\"I got that shot\" — followed by an airball.",
-      "rarity": "Fairly Common",
-      "fullDesc": "You don't just watch, you hoop. And you are convinced you could crack a G-League roster on a good week. On the blacktop you are \"block Jordan\" — step-back fade, post-ups, elite trash talk. Last three you made was three weeks ago, but that never stops you from yelling \"I got that shot!\" at the TV.",
-      "quote": "\"I could hit that.\" (airballs it on the next trip)",
+      "name": "The Pickup Legend (Self-Declared)",
+      "shortDesc": "Your confidence arrives at the court well before your actual jumper does.",
+      "rarity": "Fairly common",
+      "fullDesc": "You believe in your game with a level of commitment the evidence does not always reward. Misses are contextual. Rim was off. Legs were dead. Sun was weird. The shot itself was fine.",
+      "quote": "I can make that. The conditions are just weird today.",
       "playerArchetype": "The gap between your pickup self-image and your pickup game is bigger than the gap between Draymond's jumper and his confidence in it.",
       "teamArchetype": null,
       "vector": [
@@ -775,16 +1129,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        1,
+        2,
+        3,
+        2
+      ],
+      "rivals": [
+        "COAH",
+        "DUNK"
+      ],
+      "contrast": {
+        "COAH": "The couch coach wants to diagram it. You want to get on the floor and do it.",
+        "DUNK": "The dunk disciple is excited to watch somebody fly. You still think you might be that somebody."
+      }
     },
     {
       "index": 26,
       "code": "MOM",
       "name": "The Team Mom",
-      "shortDesc": "Stresses over every player's knees. Own joy is optional.",
-      "rarity": "Fairly Common",
-      "fullDesc": "You don't sweat standings, you sweat soft tissue. \"Oh no he rolled his ankle!\" \"Why's he looking thinner?\" \"Coach please cut his minutes, he's 22.\" You watch games the way parents watch field day. Under every injury tweet: \"Take your time, rest up, seasons come back.\"",
-      "quote": "\"He's TWENTY-TWO. Nobody put a deadline on the ring.\"",
+      "shortDesc": "You do not just root for players. You worry about them like they are your own overworked kids.",
+      "rarity": "Fairly common",
+      "fullDesc": "Minutes load, injury history, recovery timelines, coaching decisions, media pressure — all of it lands in your brain as a form of concern. You can enjoy the game, sure, but your first instinct is still protective.",
+      "quote": "Please sit him for a week. I am asking nicely.",
       "playerArchetype": "Every rookie's unofficial internet mom.",
       "teamArchetype": null,
       "vector": [
@@ -806,16 +1175,31 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "rivals": [
+        "DEAD",
+        "MONK"
+      ],
+      "contrast": {
+        "DEAD": "The ride-or-die fan mainly cares whether the team wins. You are checking whether the kid should sit.",
+        "MONK": "The zen fan stays cool about everything. Injuries are where you finally lose that calm."
+      }
     },
     {
       "index": 27,
       "code": "OJBK",
-      "name": "The Whatever Fan",
-      "shortDesc": "\"Whatever you wanna watch, I'm good.\"",
+      "name": "Basketball Switzerland",
+      "shortDesc": "You are weirdly okay with almost everything, which makes you suspiciously healthy.",
       "rarity": "Common",
-      "fullDesc": "You are the purest form of \"I'm good with anything.\" Which team? Whatever. Which game? Whatever. Who do you like? \"They're all fine.\" Upside: no team means no playoff heartbreak. Downside: no team means no ring hysteria either. You are basketball's Switzerland.",
-      "quote": "\"Pick whatever — I'll watch.\"",
+      "fullDesc": "Strong hatred does not really live in you. Favorite team, sure. Favorite player, fine. But the idea of letting sports colonize your entire emotional system never fully took.",
+      "quote": "Whoever. Whatever. I can watch that.",
       "playerArchetype": "You are the undrafted free agent — not bad, just nothing screamed \"take him.\"",
       "teamArchetype": null,
       "vector": [
@@ -836,8 +1220,30 @@
         2
       ],
       "isSpecial": false,
-      "note": null,
-      "triggerCondition": null
+      "note": "Gated archetype (only appears when none of the five axes goes extreme)",
+      "triggerCondition": "Requires all five dimensions to stay out of band 3, with OJBK still ranking first on its own signature plus base score.",
+      "vector5": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "BNCH",
+        "MONK"
+      ],
+      "contrast": {
+        "BNCH": "The bench-seat type cannot keep up with the conversation. You can float through any of them.",
+        "MONK": "The zen fan made an active choice to rise above it. You just never fell all the way in."
+      }
     }
+  ],
+  "vectorOrder5": [
+    "B",
+    "L",
+    "F",
+    "A",
+    "S"
   ]
 }

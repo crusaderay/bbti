@@ -26,6 +26,9 @@ const PAGES = {
   GALLERY: 'gallery',
 };
 
+const SITE_URL = 'https://bbti.hardestquestionfor.men';
+const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/img_bbti_normalized/03_GOAT.png`;
+
 const state = {
   page: PAGES.LANDING,
   lang: 'zh',
@@ -105,19 +108,82 @@ function totalQuestions() {
   return state.data?.questions?.questions?.length ?? 0;
 }
 
+function setMetaContent(selector, content, attribute = 'content') {
+  const node = document.querySelector(selector);
+  if (!node || !content) return;
+  node.setAttribute(attribute, content);
+}
+
+function syncStructuredData(ui, htmlLang) {
+  const script = document.getElementById('structured-data');
+  if (!script) return;
+
+  const meta = ui?.meta ?? {};
+  const description = meta.description ?? '';
+  const title = meta.title ?? 'BBTI';
+  const keywords = meta.keywords ?? '';
+  const language = htmlLang ?? 'zh-CN';
+
+  script.textContent = JSON.stringify(
+    {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': `${SITE_URL}#website`,
+          name: meta.siteName ?? 'BBTI',
+          url: SITE_URL,
+          description,
+          inLanguage: language,
+          keywords,
+        },
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}#webpage`,
+          name: title,
+          url: SITE_URL,
+          description,
+          inLanguage: language,
+          isPartOf: {
+            '@id': `${SITE_URL}#website`,
+          },
+          about: language === 'en'
+            ? ['basketball MBTI', 'basketball personality test', 'NBA fan archetypes']
+            : ['篮球 MBTI', '篮球人格测试', 'NBA 球迷人格'],
+        },
+      ],
+    },
+    null,
+    2,
+  );
+}
+
 function applyLocaleChrome() {
   const ui = currentUi();
+  const meta = ui?.meta ?? {};
   const htmlLang = ui?.htmlLang ?? (state.lang === 'en' ? 'en' : 'zh-CN');
+  const locale = htmlLang === 'en' ? 'en_US' : 'zh_CN';
+  const title = meta.title ?? 'BBTI';
+  const description = meta.description ?? '';
+  const keywords = meta.keywords ?? '';
+
   document.documentElement.setAttribute('lang', htmlLang);
 
-  if (ui?.meta?.title) {
-    document.title = ui.meta.title;
-  }
-
-  const descMeta = document.querySelector('meta[name="description"]');
-  if (descMeta && ui?.meta?.description) {
-    descMeta.setAttribute('content', ui.meta.description);
-  }
+  document.title = title;
+  setMetaContent('meta[name="description"]', description);
+  setMetaContent('meta[name="keywords"]', keywords);
+  setMetaContent('meta[property="og:title"]', meta.ogTitle ?? title);
+  setMetaContent('meta[property="og:description"]', meta.ogDescription ?? description);
+  setMetaContent('meta[property="og:url"]', SITE_URL);
+  setMetaContent('meta[property="og:locale"]', locale);
+  setMetaContent('meta[property="og:image"]', DEFAULT_SOCIAL_IMAGE);
+  setMetaContent('meta[property="og:image:alt"]', meta.ogImageAlt ?? title);
+  setMetaContent('meta[name="twitter:title"]', meta.twitterTitle ?? title);
+  setMetaContent('meta[name="twitter:description"]', meta.twitterDescription ?? description);
+  setMetaContent('meta[name="twitter:image"]', DEFAULT_SOCIAL_IMAGE);
+  setMetaContent('meta[name="twitter:image:alt"]', meta.twitterImageAlt ?? title);
+  setMetaContent('link[rel="canonical"]', SITE_URL, 'href');
+  syncStructuredData(ui, htmlLang);
 
   const header = ui?.header ?? {};
 
@@ -155,6 +221,7 @@ function renderLanding() {
   state.landingHook = landingHook;
 
   const metaCopy = interpolate(landingUi.metaTemplate ?? '', { total: totalQuestions });
+  const seoPoints = Array.isArray(landingUi.seoPoints) ? landingUi.seoPoints : [];
 
   pages[PAGES.LANDING].innerHTML = `
     <section class="landing-layout">
@@ -171,8 +238,33 @@ function renderLanding() {
         </div>
         <div class="landing-hero__actions">
           <button class="button button--primary button--pulse" type="button" data-action="start-quiz">${escapeHtml(landingUi.startButton ?? '')}</button>
+          <button class="button" type="button" data-action="open-gallery">${escapeHtml(landingUi.galleryButton ?? '')}</button>
         </div>
       </article>
+
+      <section class="landing-story" aria-label="${escapeHtml(landingUi.seoSectionAriaLabel ?? '')}">
+        <article class="card landing-story__card">
+          <p class="eyebrow">${escapeHtml(landingUi.seoEyebrow ?? '')}</p>
+          <h2>${escapeHtml(landingUi.seoHeading ?? '')}</h2>
+          <p class="body-copy">${escapeHtml(landingUi.seoBody ?? '')}</p>
+          ${
+            seoPoints.length > 0
+              ? `
+                <div class="landing-story__points">
+                  ${seoPoints.map((point) => `<span>${escapeHtml(point)}</span>`).join('')}
+                </div>
+              `
+              : ''
+          }
+        </article>
+
+        <article class="card landing-story__card">
+          <p class="eyebrow">${escapeHtml(landingUi.whyEyebrow ?? '')}</p>
+          <h2>${escapeHtml(landingUi.whyHeading ?? '')}</h2>
+          <p class="body-copy">${escapeHtml(landingUi.whyBody ?? '')}</p>
+          <p class="body-copy">${escapeHtml(landingUi.whyAudience ?? '')}</p>
+        </article>
+      </section>
     </section>
   `;
 

@@ -3,12 +3,63 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BBTI · Basketball Big Personality Test</title>
+    <title>BBTI · 篮球 MBTI 人格测试</title>
     <meta
       name="description"
-      content="A scientifically baseless personality test that reads hoops fans better than you shoot free throws. 25 brutal questions, 27 archetypes, memes everywhere."
+      content="篮球版 MBTI 人格测试。17 道题、27 种篮球迷人格，用五大篮球气质维度——球商、忠诚、戾气、行动、表达——测出你的看球风格与群聊嘴脸。"
     >
+    <meta
+      name="keywords"
+      content="篮球MBTI,篮球人格测试,NBA人格测试,篮球迷人格,篮球DNA测试,BBTI"
+    >
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="theme-color" content="#f6faf6">
+    <link rel="canonical" href="https://bbti.hardestquestionfor.men">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BBTI">
+    <meta property="og:title" content="BBTI · 篮球 MBTI 人格测试">
+    <meta
+      property="og:description"
+      content="篮球版 MBTI 人格测试。17 道题、27 种篮球迷人格，用五大篮球气质维度——球商、忠诚、戾气、行动、表达——测出你的看球风格与群聊嘴脸。"
+    >
+    <meta property="og:url" content="https://bbti.hardestquestionfor.men">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:image" content="https://bbti.hardestquestionfor.men/img_bbti_normalized/03_GOAT.png">
+    <meta property="og:image:alt" content="BBTI 篮球 MBTI 人格测试">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BBTI · 篮球 MBTI 人格测试">
+    <meta
+      name="twitter:description"
+      content="篮球版 MBTI 人格测试。17 道题、27 种篮球迷人格，用五大篮球气质维度——球商、忠诚、戾气、行动、表达——测出你的看球风格与群聊嘴脸。"
+    >
+    <meta name="twitter:image" content="https://bbti.hardestquestionfor.men/img_bbti_normalized/03_GOAT.png">
+    <meta name="twitter:image:alt" content="BBTI 篮球 MBTI 人格测试">
+    <script type="application/ld+json" id="structured-data">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://bbti.hardestquestionfor.men#website",
+            "name": "BBTI",
+            "url": "https://bbti.hardestquestionfor.men",
+            "description": "篮球版 MBTI 人格测试。17 道题、27 种篮球迷人格，用五大篮球气质维度——球商、忠诚、戾气、行动、表达——测出你的看球风格与群聊嘴脸。",
+            "inLanguage": "zh-CN",
+            "keywords": "篮球MBTI, 篮球人格测试, NBA人格测试, 篮球迷人格, BBTI"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://bbti.hardestquestionfor.men#webpage",
+            "name": "BBTI · 篮球 MBTI 人格测试",
+            "url": "https://bbti.hardestquestionfor.men",
+            "description": "篮球版 MBTI 人格测试。17 道题、27 种篮球迷人格，用五大篮球气质维度——球商、忠诚、戾气、行动、表达——测出你的看球风格与群聊嘴脸。",
+            "inLanguage": "zh-CN",
+            "isPartOf": { "@id": "https://bbti.hardestquestionfor.men#website" },
+            "about": ["篮球 MBTI", "篮球人格测试", "NBA 球迷人格"]
+          }
+        ]
+      }
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4602PPN2N4"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -28,21 +79,68 @@
 
     <div class="app-shell">
       <header class="app-header">
-        <button class="brand-mark" type="button" data-action="show-landing" data-brand-mark aria-label="Return to home">
+        <button class="brand-mark" type="button" data-action="show-landing" data-brand-mark aria-label="返回首页">
           <img src="./img/logo.svg" alt="">
           <span>
             <strong>BBTI</strong>
-            <small>Basketball Big Personality Test</small>
+            <small>篮球 MBTI 人格测试</small>
           </span>
         </button>
         <div class="header-actions">
-          <button class="header-link" type="button" data-action="open-gallery" data-nav-gallery>Gallery</button>
-          <button class="header-link header-link--lang" type="button" data-action="toggle-lang" aria-label="Switch language">EN</button>
+          <button class="header-link" type="button" data-action="open-gallery" data-nav-gallery>人格图鉴</button>
+          <button class="header-link header-link--lang" type="button" data-action="toggle-lang" aria-label="切换到 English">EN</button>
         </div>
       </header>
 
       <main class="page-stack" id="app-root">
-        <section class="page is-active" id="page-landing" aria-live="polite"></section>
+        <section class="page is-active" id="page-landing" aria-live="polite">
+          <section class="landing-layout">
+            <article class="landing-hero card">
+              <div class="landing-hero__intro">
+                <span class="hero-chip">
+                  <img src="./img/logo.svg" alt="">
+                  BBTI
+                </span>
+                <p class="eyebrow">篮球 MBTI 人格测试</p>
+                <h1>测出你的篮球迷人格，<br>看看你到底是哪一型</h1>
+                <p class="landing-hero__subtitle">
+                  BBTI 是给篮球迷做的 MBTI 风格人格测试，用 17 道题和 5 大气质维度，拆解你的看球习惯、忠诚度、火力值和群聊嘴脸。
+                </p>
+                <p class="landing-hero__meta">17 道题 · 27 种人格 · 5 大气质维度</p>
+              </div>
+              <div class="landing-hero__actions">
+                <button class="button button--primary button--pulse" type="button" data-action="start-quiz">开始测试</button>
+                <button class="button" type="button" data-action="open-gallery">先看 27 种人格</button>
+              </div>
+            </article>
+
+            <section class="landing-story" aria-label="BBTI 简介">
+              <article class="card landing-story__card">
+                <p class="eyebrow">篮球版 MBTI</p>
+                <h2>一套专门给篮球迷做的人格测试</h2>
+                <p class="body-copy">
+                  BBTI 不是测你会不会运球，而是测你看球时怎么站队、怎么破防、怎么在群里发长文。它更像篮球世界里的 MBTI，用问题把你的球迷人格直接拆出来。
+                </p>
+                <div class="landing-story__points">
+                  <span>17 道题，2-4 分钟出结果</span>
+                  <span>27 种篮球迷人格</span>
+                  <span>支持生成分享人格图</span>
+                </div>
+              </article>
+
+              <article class="card landing-story__card">
+                <p class="eyebrow">为什么会想分享</p>
+                <h2>测完之后，最有意思的是把结果发给朋友</h2>
+                <p class="body-copy">
+                  真正的乐趣不只是知道自己是哪种篮球迷，而是把人格图扔进群里，让朋友评价准不准，顺手把整群人都拉来测一遍。
+                </p>
+                <p class="body-copy">
+                  特别适合 NBA 球迷、篮球群常驻人口、季后赛熬夜党、专区嘴硬王和一切热爱吵历史地位的人。
+                </p>
+              </article>
+            </section>
+          </section>
+        </section>
         <section class="page" id="page-quiz" aria-live="polite"></section>
         <section class="page" id="page-loading" aria-live="polite"></section>
         <section class="page" id="page-result" aria-live="polite"></section>

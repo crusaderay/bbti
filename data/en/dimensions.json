@@ -1,5 +1,48 @@
 {
-  "version": "1.0.0",
+  "version": "3.0.0",
+  "description": "v3 collapses the old 15 sub-dimensions into 5 broader axes while keeping the same model ids (B/L/F/A/S). The legacy questionCount fields stay around as migration-era placeholders; v3 scoring only uses the top-level five axes.",
+  "dimensions": [
+    {
+      "id": "B",
+      "name": "IQ",
+      "fullName": "Hoops IQ & Reason",
+      "color": "#ff8c00",
+      "description": "How much you care about logic, detail, and data",
+      "questionCount": 14
+    },
+    {
+      "id": "L",
+      "name": "Loyalty",
+      "fullName": "Loyalty & Pain Tolerance",
+      "color": "#ffb347",
+      "description": "How much misery your team can put you through before you bail",
+      "questionCount": 13
+    },
+    {
+      "id": "F",
+      "name": "Heat",
+      "fullName": "Temper & Output",
+      "color": "#ef4444",
+      "description": "How quickly a bad game turns into words",
+      "questionCount": 15
+    },
+    {
+      "id": "A",
+      "name": "Action",
+      "fullName": "Action & Offline Commitment",
+      "color": "#22c55e",
+      "description": "Whether you spend, show up, or actually get on a court",
+      "questionCount": 5
+    },
+    {
+      "id": "S",
+      "name": "Broadcast",
+      "fullName": "Social Energy & Self-Expression",
+      "color": "#60a5fa",
+      "description": "How badly you want other people to know you are watching",
+      "questionCount": 14
+    }
+  ],
   "models": [
     {
       "id": "B",
@@ -8,130 +51,23 @@
     },
     {
       "id": "L",
-      "name": "LOYAL",
+      "name": "Loyalty",
       "color": "#ffb347"
     },
     {
       "id": "F",
-      "name": "SALT",
+      "name": "Heat",
       "color": "#ef4444"
     },
     {
       "id": "A",
-      "name": "GRIND",
+      "name": "Action",
       "color": "#22c55e"
     },
     {
       "id": "S",
-      "name": "HYPE",
+      "name": "Broadcast",
       "color": "#60a5fa"
-    }
-  ],
-  "dimensions": [
-    {
-      "id": "B1",
-      "name": "Tactical Reading",
-      "model": "B",
-      "modelName": "IQ",
-      "questionCount": 4
-    },
-    {
-      "id": "B2",
-      "name": "Historical Depth",
-      "model": "B",
-      "modelName": "IQ",
-      "questionCount": 4
-    },
-    {
-      "id": "B3",
-      "name": "Analytics Fluency",
-      "model": "B",
-      "modelName": "IQ",
-      "questionCount": 2
-    },
-    {
-      "id": "L1",
-      "name": "Team Devotion",
-      "model": "L",
-      "modelName": "LOYAL",
-      "questionCount": 2
-    },
-    {
-      "id": "L2",
-      "name": "Player Devotion",
-      "model": "L",
-      "modelName": "LOYAL",
-      "questionCount": 2
-    },
-    {
-      "id": "L3",
-      "name": "Rebuild Tolerance",
-      "model": "L",
-      "modelName": "LOYAL",
-      "questionCount": 2
-    },
-    {
-      "id": "F1",
-      "name": "Post-Game Rage",
-      "model": "F",
-      "modelName": "SALT",
-      "questionCount": 3
-    },
-    {
-      "id": "F2",
-      "name": "Posting Volume",
-      "model": "F",
-      "modelName": "SALT",
-      "questionCount": 2
-    },
-    {
-      "id": "F3",
-      "name": "Takedown Precision",
-      "model": "F",
-      "modelName": "SALT",
-      "questionCount": 3
-    },
-    {
-      "id": "A1",
-      "name": "Arena Presence",
-      "model": "A",
-      "modelName": "GRIND",
-      "questionCount": 2
-    },
-    {
-      "id": "A2",
-      "name": "Wallet Commitment",
-      "model": "A",
-      "modelName": "GRIND",
-      "questionCount": 2
-    },
-    {
-      "id": "A3",
-      "name": "Pickup Skill",
-      "model": "A",
-      "modelName": "GRIND",
-      "questionCount": 2
-    },
-    {
-      "id": "S1",
-      "name": "Fan Conversion",
-      "model": "S",
-      "modelName": "HYPE",
-      "questionCount": 2
-    },
-    {
-      "id": "S2",
-      "name": "Scene Presence",
-      "model": "S",
-      "modelName": "HYPE",
-      "questionCount": 2
-    },
-    {
-      "id": "S3",
-      "name": "Posting Compulsion",
-      "model": "S",
-      "modelName": "HYPE",
-      "questionCount": 3
     }
   ]
 }

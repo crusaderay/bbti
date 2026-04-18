@@ -1,56 +1,57 @@
 {
-  "version": "2.0.0",
-  "totalQuestions": 25,
+  "version": "3.0.0",
+  "changelog": [
+    "v3.0.0: Rebuilt around evidence. Five broad axes plus signature points, special endings, and the finale question. Cut from 25 questions down to 17.",
+    "v2.0.0: Added skip logic.",
+    "v1.0.0: First 25-question release."
+  ],
+  "totalQuestions": 17,
+  "scoringWeights": {
+    "baseSimilarity": 1,
+    "signatureBonus": 2,
+    "conflictPenalty": 1.5,
+    "easterThreshold": 5,
+    "fallbackDistance": 8
+  },
   "skipLogic": {
-    "description": "Some questions trigger skips based on chosen option. skipTo: null means go to next question normally.",
-    "rules": [
-      {
-        "afterQuestion": "Q3",
-        "ifOption": "A",
-        "skipTo": "Q5",
-        "reason": "Low-saltiness users skip the deep hater question."
-      },
-      {
-        "afterQuestion": "Q10",
-        "ifOption": "A",
-        "skipTo": "Q12",
-        "reason": "Non-hoopers skip the pickup tactics question."
-      },
-      {
-        "afterQuestion": "Q18",
-        "ifOption": "A",
-        "skipTo": "Q20",
-        "reason": "Vibes-only fans skip the deep analytics question."
-      }
-    ]
+    "description": "v3 does not currently use skip logic. We may revisit it after live data stabilizes.",
+    "rules": []
   },
   "questions": [
     {
       "id": "Q1",
       "index": 1,
-      "title": "Opening Tempo",
-      "text": "It's 2am on a weeknight and you're still up. Most likely reason:",
+      "type": "base",
+      "title": "Set the Tone",
+      "text": "You should have been asleep hours ago, but basketball got in the way. Why are you still up?",
       "options": [
         {
           "key": "A",
-          "text": "Instagram dunk reels on autoplay. You came in for one clip, the sun is coming up.",
+          "text": "One dunk clip turned into ten, then twenty. Now the algorithm has you trapped.",
           "scores": {
-            "B1": 1
+            "B": 1,
+            "S": 1
           }
         },
         {
           "key": "B",
-          "text": "West coast game is still in the third. You've been muttering \"just two more minutes\" for a full hour now.",
+          "text": "The game was supposed to get one last check. Somehow you have said \"two more minutes\" four separate times.",
           "scores": {
-            "B1": 2
+            "B": 2,
+            "L": 2
           }
         },
         {
           "key": "C",
-          "text": "You're in a thread war on r/NBA, tracing a timeline from LeBron's first \"Decision\" to KD joining the Warriors. The other side stopped replying an hour ago. You're still editing your seventh paragraph.",
+          "text": "You are still arguing online about LeBron, KD, and decisions made a decade ago. The other person left long ago. You are still editing.",
           "scores": {
-            "B1": 3,
-            "F2": 1
+            "B": 3,
+            "F": 2,
+            "S": 2
+          },
+          "signatures": {
+            "FIRE": 1,
+            "SALT": 1
           }
         }
       ]
@@ -58,31 +59,44 @@
     {
       "id": "Q2",
       "index": 2,
-      "title": "Loyalty Exam",
-      "text": "July 4, 2016 — KD announces he's joining the Warriors. The push notification hits. Did your spine react?",
+      "type": "base",
+      "title": "Loyalty Test",
+      "text": "July 4th, 2016. KD to the Warriors. Your immediate reaction:",
       "options": [
         {
           "key": "A",
-          "text": "Business is business. Players chase their own peak. I rolled over and went back to sleep — not my team, not my problem.",
+          "text": "It is a business. You roll over and go back to sleep. Not your team, not your problem.",
           "scores": {
-            "L1": 1
+            "L": 1,
+            "F": 1
           }
         },
         {
           "key": "B",
-          "text": "Felt a knot, then sighed and accepted it. Chasing rings isn't a crime. But \"if you can't beat 'em, join 'em\" doesn't read the same anymore.",
+          "text": "It lands with a thud. You try to be mature about it, but \"if you can't beat them, join them\" never sounds the same again.",
           "scores": {
-            "L1": 2,
-            "F1": 1
+            "L": 2,
+            "F": 2
+          },
+          "signatures": {
+            "SALT": 1
           }
         },
         {
           "key": "C",
-          "text": "Sat up in bed like you got hit by lightning. Changed your profile pic to a black candle in 90 seconds. Dropped three threads in a row: \"73 wins wasn't enough,\" \"a joiner for life,\" \"league is cooked.\" Your hands were still shaking at 4am.",
+          "text": "You bolt upright, switch the profile pic to funeral mode, and post through the night with shaking hands.",
           "scores": {
-            "L1": 3,
-            "F1": 3,
-            "F2": 2
+            "L": 3,
+            "F": 3,
+            "S": 2
+          },
+          "signatures": {
+            "FIRE": 2,
+            "SALT": 1
+          },
+          "conflicts": {
+            "MONK": 1,
+            "OJBK": 1
           }
         }
       ]
@@ -90,32 +104,46 @@
     {
       "id": "Q3",
       "index": 3,
-      "title": "Saltiness Strip",
-      "text": "Playoffs, Game 7, 1.2 seconds left. Your star gets undercut and the ref swallows the whistle. Your immediate physical reaction:",
+      "type": "base",
+      "title": "Salt Test",
+      "text": "Playoffs. Game 7. Your guy gets fouled and the ref did not call that. Your reaction is:",
       "options": [
         {
           "key": "A",
-          "text": "Deep breath. Refs are human. Phone off. Got work in the morning.",
+          "text": "Deep breath. Refs miss calls. Phone down. Life goes on.",
           "scores": {
-            "F1": 1,
-            "F3": 1
+            "F": 1,
+            "L": 2
+          },
+          "signatures": {
+            "MONK": 1
           }
         },
         {
           "key": "B",
-          "text": "Six smiley faces and an ellipsis in the group chat. \"Okay league, cool, cool.\" Passive-aggressive, but still dignified.",
+          "text": "You send six smiley faces and one deeply threatening ellipsis to the chat.",
           "scores": {
-            "F1": 2,
-            "F3": 2
+            "F": 2,
+            "S": 2
+          },
+          "signatures": {
+            "SALT": 1
           }
         },
         {
           "key": "C",
-          "text": "Fingers shaking, clip nine GIFs, draft a 1,500-word post titled \"From the 2002 Lakers-Kings Game 6 to Tonight — A Chronology of Rigged Officiating.\" Views don't matter. The heart rate dropping back under 100 does.",
+          "text": "You start clipping GIFs like you are putting together evidence for court.",
           "scores": {
-            "F1": 3,
-            "F3": 3,
-            "F2": 2
+            "F": 3,
+            "S": 3,
+            "B": 2
+          },
+          "signatures": {
+            "REF": 3,
+            "FIRE": 1
+          },
+          "conflicts": {
+            "MONK": 2
           }
         }
       ]
@@ -123,32 +151,42 @@
     {
       "id": "Q4",
       "index": 4,
-      "title": "How Deep You Go (may skip to Q5)",
-      "text": "Last time you got into an online basketball fight that got you genuinely heated. Trigger was:",
+      "type": "base",
+      "title": "Meme Recognition · Duncan Edition",
+      "text": "At a casual hangout, somebody says with a straight face, \"Duncan is the universally agreed-on greatest power forward ever.\" Your reaction:",
       "options": [
         {
           "key": "A",
-          "text": "I don't fight online. I scroll past. Lifespan matters more than winning a thread.",
+          "text": "No reaction. Duncan was incredible. Sounds fair enough to you.",
           "scores": {
-            "F3": 1,
-            "S3": 1
+            "B": 1,
+            "S": 1
+          },
+          "signatures": {
+            "FAKE": 1,
+            "BNCH": 1
           }
         },
         {
           "key": "B",
-          "text": "Someone said something unhinged — like \"Andrew Wiggins top-ten all-time\" — I dropped two replies and peaced out.",
+          "text": "Your brain instantly goes, \"According to who?\" You almost laugh, then hold it in.",
           "scores": {
-            "F3": 2,
-            "S3": 2
+            "B": 2,
+            "S": 2
           }
         },
         {
           "key": "C",
-          "text": "They said \"LeBron is worse than Curry.\" I went from the '03 draft to last night, posted six Basketball Reference screenshots, followed them until their account went private, and I still felt I wasn't finished.",
+          "text": "You set the drink down and take over the whole conversation. By the end, everyone is re-ranking power forwards.",
           "scores": {
-            "F3": 3,
-            "S3": 3,
-            "B3": 1
+            "B": 3,
+            "S": 3,
+            "F": 1
+          },
+          "signatures": {
+            "HYPE": 1,
+            "COAH": 1,
+            "GOAT": 1
           }
         }
       ]
@@ -156,29 +194,46 @@
     {
       "id": "Q5",
       "index": 5,
-      "title": "GOAT Debate Instinct",
-      "text": "Over dinner, someone raises a glass and declares, \"Duncan is the consensus best power forward ever.\" Did the corner of your mouth twitch?",
+      "type": "base",
+      "title": "Meme Recognition · 58 Edition",
+      "text": "Forum headline: \"Team X got blown out by 50 last night.\" First thing that pops into your head:",
       "options": [
         {
           "key": "A",
-          "text": "No. Duncan is great. That's consensus, right? What's the problem?",
+          "text": "Fifty is brutal. That is a proper beating.",
           "scores": {
-            "B2": 1
+            "B": 1
+          },
+          "signatures": {
+            "FAKE": 1,
+            "BNCH": 1
           }
         },
         {
           "key": "B",
-          "text": "Yes. \"Consensus according to whom?\" rang in your head, Skip Bayless-style, and you almost snorted. You held it in for the sake of the room.",
+          "text": "Only 50? That is ugly, but it is not true 58 territory.",
           "scores": {
-            "B2": 2
+            "B": 2,
+            "S": 1
           }
         },
         {
           "key": "C",
-          "text": "You put the fork down, took over the conversation, and delivered a twelve-minute tour from Malone's regular-season stats to KG's two-way case to Dirk's Finals run. By dessert the whole table was recalibrating their top-ten PFs.",
+          "text": "\"That is only 0.86 of a 58. CP3 once lost by the full 58 at home. That is the real benchmark.\"",
           "scores": {
-            "B2": 3,
-            "S1": 1
+            "B": 3,
+            "S": 2,
+            "F": 1
+          },
+          "signatures": {
+            "58": 5
+          },
+          "conflicts": {
+            "HYPE": 2
+          },
+          "easter": {
+            "code": "58",
+            "weight": 6
           }
         }
       ]
@@ -186,29 +241,42 @@
     {
       "id": "Q6",
       "index": 6,
-      "title": "58-Point Meme",
-      "text": "Forum post: \"[Team] lost by 30 last night!\" — your first reaction to the number is:",
+      "type": "base",
+      "title": "How Close Are You to the Arena",
+      "text": "A friend suddenly offers you a ticket to tonight's big game. How close are you, really, to live-basketball mode?",
       "options": [
         {
           "key": "A",
-          "text": "30 is rough, that's a beating.",
+          "text": "Your closest brush with live basketball is still noticing the wrong sign in the crowd on TV.",
           "scores": {
-            "B2": 1
+            "A": 1,
+            "S": 1
+          },
+          "signatures": {
+            "FAKE": 1
           }
         },
         {
           "key": "B",
-          "text": "Only 30? Not in the 58-tier. Not a historic one.",
+          "text": "You have gone a few times. First priority: angle, photo, proof that you are not just a couch fan. The actual game blurs together.",
           "scores": {
-            "B2": 2
+            "A": 2,
+            "S": 2
+          },
+          "signatures": {
+            "HYPE": 1
           }
         },
         {
           "key": "C",
-          "text": "\"0.52 of a 58. Not even passing. In January 2009 Phoenix put up a full 58 on CP3 in his own building. THAT is the measuring stick. 30 doesn't chart.\"",
+          "text": "Your first questions are row, tunnel access, arena Wi-Fi, and the nearest craft beer spot. You treat games like live-event logistics.",
           "scores": {
-            "B2": 3,
-            "F3": 1
+            "A": 3,
+            "S": 2,
+            "L": 2
+          },
+          "signatures": {
+            "ATM": 3
           }
         }
       ]
@@ -216,32 +284,51 @@
     {
       "id": "Q7",
       "index": 7,
-      "title": "Arena Proximity",
-      "text": "A friend texts you a ticket to tonight's marquee game. Your realistic distance from \"live NBA experience\" is:",
+      "type": "base",
+      "title": "Tank Test",
+      "text": "Your team opens 2-17. The fan forum has already gone from \"playoff push\" to \"protect the lottery pick.\" You:",
       "options": [
         {
           "key": "A",
-          "text": "The closest I've come to a real arena is spotting someone in the front row holding the wrong foam finger.",
+          "text": "Quietly switch to watching good teams and come back when the rebuild is less embarrassing.",
           "scores": {
-            "A1": 1,
-            "A2": 1
+            "L": 1,
+            "F": 1
+          },
+          "signatures": {
+            "BAND": 2,
+            "MONK": 1
+          },
+          "conflicts": {
+            "DEAD": 1
           }
         },
         {
           "key": "B",
-          "text": "Been a few times. First I pick my angles, take photos, post a story to prove I'm not a TV-only fan. The actual game kind of blurs.",
+          "text": "Start reading scouting reports and convincing yourself the next savior is in next year's draft.",
           "scores": {
-            "A1": 2,
-            "A2": 2
+            "L": 2,
+            "B": 2
+          },
+          "signatures": {
+            "TANK": 2,
+            "DEAD": 1
           }
         },
         {
           "key": "C",
-          "text": "Reply: what row, what seat, can we stalk the tunnel, what's the arena wifi, and where's the closest craft beer bar. You go to games like you're producing an event.",
+          "text": "Somehow get more excited with every loss and post, \"Winning this one would have cost us half the future.\"",
           "scores": {
-            "A1": 3,
-            "A2": 3,
-            "S2": 1
+            "L": 3,
+            "F": 1,
+            "S": 2
+          },
+          "signatures": {
+            "TANK": 3,
+            "DEAD": 1
+          },
+          "conflicts": {
+            "FIRE": 1
           }
         }
       ]
@@ -249,32 +336,43 @@
     {
       "id": "Q8",
       "index": 8,
-      "title": "A Curry Moment",
-      "text": "You're mid-bite at dinner, and Steph drills a deep logo three for the win. Your body reacts before your brain. You:",
+      "type": "base",
+      "title": "Annual Trauma Repost",
+      "text": "Every June, someone reposts J.R. Smith dribbling out the clock in Game 1 of the 2018 Finals. Your reaction:",
       "options": [
         {
           "key": "A",
-          "text": "Mutter \"damn,\" then finish chewing. Beautiful shot. Food doesn't wait.",
+          "text": "What clip? You are drawing a blank.",
           "scores": {
-            "S3": 1,
-            "S1": 1
+            "B": 1
+          },
+          "signatures": {
+            "FAKE": 1,
+            "BNCH": 1
           }
         },
         {
           "key": "B",
-          "text": "Screenshot it for your story. Caption was drafted mid-air: \"this shouldn't go in.\"",
+          "text": "Immediate stomach drop. You know the meme. You still do not want to watch it again.",
           "scores": {
-            "S3": 2,
-            "S1": 2
+            "B": 2,
+            "F": 1
           }
         },
         {
           "key": "C",
-          "text": "Chopsticks slap the table, phone is already up, and you @ the three people who called him cooked last week, attached slow-mo GIF with the caption: \"Others call it a heave — when he takes it, it's a logo shot.\"",
+          "text": "Right on time, you repost the GIF yourself like it is a yearly holiday.",
           "scores": {
-            "S3": 3,
-            "S1": 3,
-            "F3": 1
+            "B": 3,
+            "F": 2,
+            "S": 3
+          },
+          "signatures": {
+            "POLO": 5
+          },
+          "easter": {
+            "code": "POLO",
+            "weight": 6
           }
         }
       ]
@@ -282,28 +380,88 @@
     {
       "id": "Q9",
       "index": 9,
-      "title": "Tank Stress Test",
-      "text": "Your team starts 2-17. The subreddit's sticky has already rebranded from \"Playoff Push\" to \"Protect the Lottery Pick.\" Your mental state:",
+      "type": "signature",
+      "title": "First Reaction After a Loss",
+      "text": "Your team just dropped three straight. You open the sub or the group chat. What do you most want to type first?",
       "options": [
         {
           "key": "A",
-          "text": "Quietly switch over to a contender's stream. Come back when the rebuild is over.",
+          "text": "\"Who is making these rotations? Why was ___ not in during the fourth? What was that out-of-timeout play?\"",
           "scores": {
-            "L3": 1
+            "B": 3,
+            "F": 2
+          },
+          "signatures": {
+            "COAH": 4,
+            "STAT": 1
+          },
+          "conflicts": {
+            "HYPE": 1,
+            "MONK": 1
           }
         },
         {
           "key": "B",
-          "text": "Start eating draft scouting reports for breakfast. Research the next potential franchise savior. Painful, but there's direction.",
+          "text": "\"You still cannot tell from the on/off numbers? This starting lineup has been cooked for weeks.\"",
           "scores": {
-            "L3": 2
+            "B": 3,
+            "F": 2
+          },
+          "signatures": {
+            "STAT": 4
+          },
+          "conflicts": {
+            "HYPE": 1,
+            "MONK": 1
           }
         },
         {
           "key": "C",
-          "text": "The more losses, the hype. Post \"winning this one actually cost us half our future.\" Cheer up the group chat post-loss with \"keep it up fellas, that top pick is incoming.\"",
+          "text": "\"Fire the coach. Fire the GM. Sell the team. Forget the process. Who is responsible?\"",
           "scores": {
-            "L3": 3
+            "F": 3,
+            "L": 2
+          },
+          "signatures": {
+            "FIRE": 5,
+            "SALT": 1
+          },
+          "conflicts": {
+            "MONK": 2,
+            "DEAD": 1
+          }
+        },
+        {
+          "key": "D",
+          "text": "\"This is not on the team. Did everybody forget what the refs did last game?\"",
+          "scores": {
+            "F": 3,
+            "L": 2
+          },
+          "signatures": {
+            "REF": 5,
+            "SALT": 2
+          },
+          "conflicts": {
+            "COAH": 1,
+            "MONK": 2
+          }
+        },
+        {
+          "key": "E",
+          "text": "\"Forget it. I am going to bed. I will find out how bad it was tomorrow.\"",
+          "scores": {
+            "F": 1,
+            "L": 1
+          },
+          "signatures": {
+            "MONK": 4,
+            "SOLO": 2
+          },
+          "conflicts": {
+            "FIRE": 2,
+            "HYPE": 2,
+            "SALT": 1
           }
         }
       ]
@@ -311,29 +469,92 @@
     {
       "id": "Q10",
       "index": 10,
-      "title": "Pickup Identity",
-      "text": "The park is one short. Someone yells \"yo — you, come in!\" Gap between your actual level and your self-image:",
+      "type": "signature",
+      "title": "Final Loyalty Question",
+      "text": "Somebody asks, \"Your team is this bad. How have you still not switched?\" Which answer sounds most like you?",
       "options": [
         {
           "key": "A",
-          "text": "I'm the \"you hoop, you go\" guy. Once I'm actually in, I retie shoelaces for five minutes, then stand in the corner as a human cone.",
+          "text": "\"Because I love them. I have already suffered this long. Might as well finish the sentence.\"",
           "scores": {
-            "A3": 1
+            "L": 3,
+            "F": 1
+          },
+          "signatures": {
+            "DEAD": 5,
+            "MOM": 4
+          },
+          "conflicts": {
+            "BAND": 2,
+            "FAKE": 2,
+            "OJBK": 1
           }
         },
         {
           "key": "B",
-          "text": "I can run the floor, rotate on defense, shoot open ones. Makes are another story, but I'm not the worst out there.",
+          "text": "\"Relax. The draft pick is the real future. The uglier this gets, the better the rebuild.\"",
           "scores": {
-            "A3": 2
+            "L": 3,
+            "B": 2
+          },
+          "signatures": {
+            "TANK": 7,
+            "DEAD": 1
+          },
+          "conflicts": {
+            "FIRE": 1,
+            "FAKE": 1
           }
         },
         {
           "key": "C",
-          "text": "I warm up with step-back threes, call for the ball first possession, self-declared \"blacktop Kobe\" — shoot at roughly the same percentage the '18 Rockets hit from three in Game 7 of the WCF.",
+          "text": "\"People grow. Appreciating actually great teams is not a crime.\"",
           "scores": {
-            "A3": 3,
-            "B1": 1
+            "L": 1,
+            "B": 1
+          },
+          "signatures": {
+            "BAND": 7,
+            "FAKE": 1
+          },
+          "conflicts": {
+            "DEAD": 3,
+            "FIRE": 1
+          }
+        },
+        {
+          "key": "D",
+          "text": "\"I do not really watch all year. I mainly tune in once the Finals roll around.\"",
+          "scores": {
+            "L": 1,
+            "A": 1,
+            "B": 1
+          },
+          "signatures": {
+            "FAKE": 5,
+            "BNCH": 1
+          },
+          "conflicts": {
+            "DEAD": 3,
+            "ATM": 1,
+            "HOOP": 1,
+            "STAT": 1
+          }
+        },
+        {
+          "key": "E",
+          "text": "\"I can watch anybody, honestly. I am not that attached.\"",
+          "scores": {
+            "L": 2
+          },
+          "signatures": {
+            "OJBK": 2,
+            "MONK": 1
+          },
+          "conflicts": {
+            "DEAD": 2,
+            "FIRE": 1,
+            "SALT": 1
           }
         }
       ]
@@ -341,31 +562,80 @@
     {
       "id": "Q11",
       "index": 11,
-      "title": "Pickup Tactics (may skip to Q12)",
-      "text": "Park game, your squad asks \"what do we run?\" You:",
+      "type": "signature",
+      "title": "Your Superstar Debate Weapon",
+      "text": "The group chat is eight pages deep into \"Is this guy actually a superstar?\" You finally jump in. What is your weapon?",
       "options": [
         {
           "key": "A",
-          "text": "Tactics? Whoever gets the ball, shoots it.",
+          "text": "\"Start with all-time ranking. If he is not in that tier, stop forcing it.\"",
           "scores": {
-            "B1": 1,
-            "A3": 1
+            "B": 3,
+            "F": 2
+          },
+          "signatures": {
+            "GOAT": 10
+          },
+          "conflicts": {
+            "FAKE": 1
           }
         },
         {
           "key": "B",
-          "text": "Just cut off the ball, shoot when open, don't over-dribble.",
+          "text": "\"TS%, BPM, on/off, sample size, strength of opponent. It is all right here. Read it.\"",
           "scores": {
-            "B1": 2,
-            "A3": 2
+            "B": 3,
+            "F": 1
+          },
+          "signatures": {
+            "STAT": 5,
+            "COAH": 1
+          },
+          "conflicts": {
+            "FAKE": 1
           }
         },
         {
           "key": "C",
-          "text": "Grab a piece of chalk, sketch a set on the floor, walk them through sideline inbound, then weakside cut. Your squad thinks you're annoying — but the first play actually runs.",
+          "text": "\"The numbers can still be fake. Clutch value, game context, and whether it leads to winning still matter more.\"",
           "scores": {
-            "B1": 3,
-            "A3": 3
+            "B": 3,
+            "F": 2
+          },
+          "signatures": {
+            "MVP": 8,
+            "MEDI": 2
+          },
+          "conflicts": {
+            "STAT": 2
+          }
+        },
+        {
+          "key": "D",
+          "text": "\"Hang on, let me pull up the screenshot from last year where I said he was about to blow up.\"",
+          "scores": {
+            "B": 2,
+            "S": 2
+          },
+          "signatures": {
+            "CTRL": 5,
+            "IRON": 3
+          }
+        },
+        {
+          "key": "E",
+          "text": "A reaction image first. You understand that online debates are mostly posture anyway.",
+          "scores": {
+            "S": 3,
+            "F": 1
+          },
+          "signatures": {
+            "HYPE": 4,
+            "BNCH": 1
+          },
+          "conflicts": {
+            "STAT": 1,
+            "GOAT": 1
           }
         }
       ]
@@ -373,29 +643,77 @@
     {
       "id": "Q12",
       "index": 12,
-      "title": "Your Star Joins a Rival",
-      "text": "Your favorite player signs with the one team you actively hate. First involuntary body move:",
+      "type": "signature",
+      "title": "The Image That Keeps You Awake",
+      "text": "Which kind of moment is most likely to keep you up all night?",
       "options": [
         {
           "key": "A",
-          "text": "Whatever. I follow the game, not the laundry. Jerseys are jerseys.",
+          "text": "A poster dunk. That split-second before takeoff, then the 0.25x replay until sunrise.",
           "scores": {
-            "L2": 1
+            "F": 2,
+            "A": 1
+          },
+          "signatures": {
+            "DUNK": 10,
+            "HOOP": 2
           }
         },
         {
           "key": "B",
-          "text": "Still a fan of him as a person — but won't lift a finger to defend that team. Feels like a one-sided divorce with lingering feelings.",
+          "text": "A logo three where the ball is still in the air and you already know it is ridiculous.",
           "scores": {
-            "L2": 2
+            "B": 2,
+            "S": 1
+          },
+          "signatures": {
+            "3PTR": 10
+          },
+          "conflicts": {
+            "DUNK": 1
           }
         },
         {
           "key": "C",
-          "text": "Morning: \"If you can't beat 'em, join 'em is trash.\" Afternoon: new profile pic, new wallpaper, cart full of merch, Twitter bio updated. Your mouth says one thing, your body does the other — body wins, obviously.",
+          "text": "Being way down and still believing a miracle is coming.",
           "scores": {
-            "L2": 3,
-            "S3": 1
+            "L": 3,
+            "S": 1
+          },
+          "signatures": {
+            "MEDI": 9
+          }
+        },
+        {
+          "key": "D",
+          "text": "Not one play. The exact second the group chat and your timeline both explode together.",
+          "scores": {
+            "S": 3,
+            "A": 1
+          },
+          "signatures": {
+            "HYPE": 3,
+            "IRON": 2,
+            "TANK": 1
+          },
+          "conflicts": {
+            "SOLO": 2,
+            "MONK": 1
+          }
+        },
+        {
+          "key": "E",
+          "text": "You are pretty calm. One quiet rewatch afterward is enough.",
+          "scores": {
+            "S": 1,
+            "B": 2
+          },
+          "signatures": {
+            "SOLO": 5,
+            "MONK": 2
+          },
+          "conflicts": {
+            "HYPE": 2
           }
         }
       ]
@@ -403,32 +721,81 @@
     {
       "id": "Q13",
       "index": 13,
-      "title": "Jordan vs. LeBron",
-      "text": "Someone at the coffee machine loudly says \"Jordan is better than LeBron\" (or the reverse), clearly baiting. Do you bite?",
+      "type": "signature",
+      "title": "Injury News Reaction",
+      "text": "A young player you love sprains an ankle and the comments are already saying, \"He has to play through it.\" Your first reaction:",
       "options": [
         {
           "key": "A",
-          "text": "Pretend I didn't hear. My 9:30am blood pressure isn't worth this conversation.",
+          "text": "\"Sit him. A career matters more than one round.\"",
           "scores": {
-            "F1": 1,
-            "B1": 1
+            "L": 2,
+            "F": 1
+          },
+          "signatures": {
+            "MOM": 7
+          },
+          "conflicts": {
+            "FIRE": 1,
+            "DEAD": 1
           }
         },
         {
           "key": "B",
-          "text": "I have a full counter-argument queued up, but a look around the office convinces me to shut up. Not worth exposing the BBIQ to coworkers.",
+          "text": "\"This front office, this coach, this usage pattern — they were always going to run him into the ground.\"",
           "scores": {
-            "F1": 2,
-            "B1": 2
+            "F": 3,
+            "L": 2
+          },
+          "signatures": {
+            "FIRE": 4,
+            "IRON": 2
+          },
+          "conflicts": {
+            "DEAD": 1
           }
         },
         {
           "key": "C",
-          "text": "Slowly put the coffee cup down. Open the Notes app. You have a 47-page document titled \"Comparative Legacy Analysis\" — ring weighted, FMVP voting breakdown, era-adjusted PER. Proceed like a congressional hearing.",
+          "text": "\"It sucks. But this is pro sports. It happens.\"",
           "scores": {
-            "F1": 3,
-            "B1": 3,
-            "B3": 1
+            "F": 1,
+            "L": 1
+          },
+          "signatures": {
+            "MONK": 4,
+            "SOLO": 3
+          }
+        },
+        {
+          "key": "D",
+          "text": "\"I mostly care about the recovery timeline and what the post-injury efficiency curve looks like.\"",
+          "scores": {
+            "B": 3
+          },
+          "signatures": {
+            "STAT": 3,
+            "MVP": 1,
+            "COAH": 2
+          },
+          "conflicts": {
+            "MOM": 2,
+            "HYPE": 1
+          }
+        },
+        {
+          "key": "E",
+          "text": "\"If the title window is still open, he has to gut it out.\"",
+          "scores": {
+            "L": 3,
+            "F": 2
+          },
+          "signatures": {
+            "DEAD": 4
+          },
+          "conflicts": {
+            "MOM": 3,
+            "MONK": 2
           }
         }
       ]
@@ -436,32 +803,82 @@
     {
       "id": "Q14",
       "index": 14,
-      "title": "The J.R. Smith Anniversary",
-      "text": "It's June. Someone inevitably re-posts J.R. Smith running out the clock in Game 1 of the 2018 Finals. You:",
+      "type": "signature",
+      "title": "How Your Love Shows Up",
+      "text": "If you could only use one action to prove you genuinely love basketball, which one is most you?",
       "options": [
         {
           "key": "A",
-          "text": "What pass? Doesn't ring a bell.",
+          "text": "Spend money. Jersey, shoes, cards, tickets — love should leave a receipt.",
           "scores": {
-            "B2": 1,
-            "F2": 1
+            "A": 3,
+            "L": 2
+          },
+          "signatures": {
+            "ATM": 7
+          },
+          "conflicts": {
+            "SOLO": 1,
+            "MONK": 1
           }
         },
         {
           "key": "B",
-          "text": "Chest tightens. You know the meme, you just don't want to watch it one more time.",
+          "text": "Post it. Watching only feels real if other people know you are watching too.",
           "scores": {
-            "B2": 2,
-            "F2": 2
+            "S": 3,
+            "A": 2
+          },
+          "signatures": {
+            "HYPE": 4,
+            "IRON": 1
+          },
+          "conflicts": {
+            "SOLO": 3,
+            "MONK": 1
           }
         },
         {
           "key": "C",
-          "text": "You post your annual \"Never Forget\" thread on time, with the GIF, the \"he thought they were up\" caption, and commemorative emojis. It's been eight straight years. It's basically a holiday for you now.",
+          "text": "Actually hoop. Watching makes you want to get on a court yourself.",
           "scores": {
-            "B2": 3,
-            "F2": 3,
-            "S3": 1
+            "A": 3,
+            "B": 2
+          },
+          "signatures": {
+            "HOOP": 8
+          }
+        },
+        {
+          "key": "D",
+          "text": "Watch the whole game alone, then hit the rewatch and the comments afterward.",
+          "scores": {
+            "B": 3,
+            "L": 2,
+            "S": 1
+          },
+          "signatures": {
+            "SOLO": 5
+          },
+          "conflicts": {
+            "HYPE": 3
+          }
+        },
+        {
+          "key": "E",
+          "text": "Nothing fixed, really. You just catch whatever catches you.",
+          "scores": {
+            "A": 1,
+            "L": 1
+          },
+          "signatures": {
+            "OJBK": 5,
+            "FAKE": 1
+          },
+          "conflicts": {
+            "DEAD": 2,
+            "ATM": 2,
+            "HOOP": 2
           }
         }
       ]
@@ -469,29 +886,65 @@
     {
       "id": "Q15",
       "index": 15,
-      "title": "35 Seconds, 13 Points",
-      "text": "You're drunk at a bar. Somebody shouts \"35 SECONDS, 13 POINTS!\" Your first reaction:",
+      "type": "signature",
+      "title": "Pre-Series Prediction Mode",
+      "text": "Right before a playoff series starts, which mode sounds most like you?",
       "options": [
         {
           "key": "A",
-          "text": "Is this some kind of mental math problem?",
+          "text": "\"This is easy. We are blowing them out tonight.\" You hit post, then lose by twenty.",
           "scores": {
-            "B2": 1
+            "F": 2,
+            "S": 2
+          },
+          "signatures": {
+            "IRON": 5,
+            "HYPE": 1
+          },
+          "conflicts": {
+            "MONK": 2,
+            "CTRL": 2
           }
         },
         {
           "key": "B",
-          "text": "T-Mac! Vs. Spurs! I know this one!",
+          "text": "You open a spreadsheet, pull the last ten games, model the matchup, and produce a real prediction sheet.",
           "scores": {
-            "B2": 2
+            "B": 3,
+            "F": 1
+          },
+          "signatures": {
+            "STAT": 4,
+            "CTRL": 2
+          },
+          "conflicts": {
+            "HYPE": 1,
+            "FAKE": 2
           }
         },
         {
           "key": "C",
-          "text": "December 9, 2004. Toyota Center. Rockets trailing the Spurs 84-81. In the final 35 seconds T-Mac drops 13, capped with a four-point play. You walk the bar through it possession by possession. The next song is playing. You're still not done.",
+          "text": "\"I told you this was coming.\" Screenshot already saved. If you are right, you are posting the receipt immediately.",
           "scores": {
-            "B2": 3,
-            "S1": 1
+            "B": 2,
+            "F": 2,
+            "S": 2
+          },
+          "signatures": {
+            "CTRL": 5,
+            "SALT": 1
+          }
+        },
+        {
+          "key": "D",
+          "text": "No predictions. The games will happen either way.",
+          "scores": {
+            "F": 1,
+            "L": 1
+          },
+          "signatures": {
+            "MONK": 2,
+            "OJBK": 3
           }
         }
       ]
@@ -499,32 +952,94 @@
     {
       "id": "Q16",
       "index": 16,
-      "title": "Drake Curse Litmus",
-      "text": "At dinner, someone joke-references the Drake Curse and pokes you with \"is r/NBA still doing the 'Basketball Reasons' copypasta?\" You:",
+      "type": "signature",
+      "title": "Your Ecological Niche on the Forum",
+      "text": "What kind of post do you feel the strongest urge to make?",
       "options": [
         {
           "key": "A",
-          "text": "Smile politely. That meme is ancient. Not worth the energy.",
+          "text": "\"Who designed this offense?\" with a screenshot, arrows, and way too many circles.",
           "scores": {
-            "F1": 1,
-            "B1": 1
+            "B": 3,
+            "F": 2
+          },
+          "signatures": {
+            "COAH": 4
           }
         },
         {
           "key": "B",
-          "text": "Appreciate it like a museum piece, laugh, move on. Certified Basketball Twitter fossil.",
+          "text": "\"This lineup never worked in the numbers.\" Then three charts land immediately.",
           "scores": {
-            "F1": 2,
-            "B1": 2
+            "B": 3,
+            "F": 2
+          },
+          "signatures": {
+            "STAT": 3,
+            "MVP": 1
           }
         },
         {
           "key": "C",
-          "text": "Cut the table off. Walk through the entire Drake Curse timeline — Alabama, KY, Arsenal, Kendrick — plus the r/NBA \"Basketball Reasons\" lineage all the way to the mod sticker wars. Turn dinner into a meme studies seminar.",
+          "text": "\"FIRE HIM\" in all caps, followed by three angry sentences.",
           "scores": {
-            "F1": 3,
-            "F3": 1,
-            "B1": 3
+            "F": 3,
+            "S": 2
+          },
+          "signatures": {
+            "FIRE": 5,
+            "SALT": 1
+          },
+          "conflicts": {
+            "MONK": 2,
+            "DEAD": 1
+          }
+        },
+        {
+          "key": "D",
+          "text": "\"How long is the league going to keep pushing them?\" You care about officiating reports more than most people care about lunch.",
+          "scores": {
+            "F": 3,
+            "L": 2
+          },
+          "signatures": {
+            "REF": 5,
+            "SALT": 1
+          },
+          "conflicts": {
+            "COAH": 1
+          }
+        },
+        {
+          "key": "E",
+          "text": "\"Congrats to Team X. Their child is so talented.\" Pure sarcasm, then nine follow-up comments of \"That's it?\"",
+          "scores": {
+            "F": 3,
+            "S": 2
+          },
+          "signatures": {
+            "SALT": 5
+          },
+          "conflicts": {
+            "DEAD": 1,
+            "MONK": 2,
+            "HYPE": 1
+          }
+        },
+        {
+          "key": "F",
+          "text": "\"Thirty a game? Most of those points came when the game was already dead. Do you people watch tape or not?\"",
+          "scores": {
+            "B": 3,
+            "F": 2
+          },
+          "signatures": {
+            "MVP": 4,
+            "SALT": 1
+          },
+          "conflicts": {
+            "STAT": 1,
+            "HYPE": 1
           }
         }
       ]
@@ -532,284 +1047,70 @@
     {
       "id": "Q17",
       "index": 17,
-      "title": "NBA Internet Niche",
-      "text": "Your team's name is trending. Your position in the r/NBA / NBA Twitter / basketball Discord ecosystem is:",
+      "type": "finale",
+      "title": "Finale · Elimination Game",
+      "text": "It is your team's playoff elimination game. Starting in the afternoon, which version of you shows up?",
       "options": [
         {
           "key": "A",
-          "text": "Lurker. Scroll in, scroll out. Still using the default egg avatar.",
+          "text": "Work, meals, life as usual. It is still just one game.",
           "scores": {
-            "F2": 1,
-            "S2": 1
+            "F": 1,
+            "S": 1,
+            "L": 1
+          },
+          "signatures": {
+            "MONK": 5,
+            "OJBK": 4,
+            "SOLO": 2
+          },
+          "conflicts": {
+            "FIRE": 2,
+            "HYPE": 2,
+            "DEAD": 2
           }
         },
         {
           "key": "B",
-          "text": "Your threads start with \"Calm discussion\" and stay calm for at least three paragraphs.",
+          "text": "You clear some space, set the channel early, and feel your palms getting sweaty even while pretending you are fine.",
           "scores": {
-            "F2": 2,
-            "S2": 2
+            "L": 2,
+            "F": 2,
+            "S": 2
+          },
+          "signatures": {
+            "DEAD": 4,
+            "SOLO": 2,
+            "STAT": 1
           }
         },
         {
           "key": "C",
-          "text": "Regulars see your username and know court is in session. Your hater meme folder and frame-by-frame GIFs outgun the mods. Before the other side finishes typing, your receipts have scrolled to page two.",
+          "text": "Jersey ready, snacks ready, Wi-Fi checked, group chats cleaned out, winning captions drafted, tomorrow's excuse ready if they lose.",
           "scores": {
-            "F2": 3,
-            "S2": 3,
-            "F3": 1
+            "L": 3,
+            "F": 2,
+            "S": 3,
+            "A": 2
+          },
+          "signatures": {
+            "HYPE": 5,
+            "ATM": 2,
+            "DEAD": 2
+          },
+          "conflicts": {
+            "MONK": 2,
+            "OJBK": 2
           }
-        }
-      ]
-    },
-    {
-      "id": "Q18",
-      "index": 18,
-      "title": "Weapon of Choice",
-      "text": "Group chat is eight pages deep in \"is ___ really a superstar?\" Your go-to weapon:",
-      "options": [
-        {
-          "key": "A",
-          "text": "Just a \"he's a superstar? lmaooo.\" No logic, pure tone.",
-          "scores": {
-            "B3": 1,
-            "F3": 1
-          }
-        },
-        {
-          "key": "B",
-          "text": "Averages, TS%, last five games, a sarcastic \"win a ring first\" — loud but not hardcore.",
-          "scores": {
-            "B3": 2,
-            "F3": 2
-          }
-        },
-        {
-          "key": "C",
-          "text": "TS%, BPM, VORP, On/Off net rating, clutch-time splits — all at once. Thread becomes a thesis defense. Not open to rebuttal, only open to more data.",
-          "scores": {
-            "B3": 3,
-            "F3": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "Q19",
-      "index": 19,
-      "title": "Deep-Dive Analytics (may skip to Q20)",
-      "text": "A comment drops: \"That 40-piece was padded.\" You:",
-      "options": [
-        {
-          "key": "A",
-          "text": "Dropping 40 is impressive, padded or not. Respect.",
-          "scores": {
-            "B3": 1
-          }
-        },
-        {
-          "key": "B",
-          "text": "Some of it is garbage, sure, but it's not all padding. Depends on opponent strength.",
-          "scores": {
-            "B3": 2
-          }
-        },
-        {
-          "key": "C",
-          "text": "Immediately pull the garbage-time share, opponent defensive rating rank, and his usage curve. Follow up with: \"define 'padded' — are we measuring it in rings, efficiency, or 58s?\"",
-          "scores": {
-            "B3": 3,
-            "F3": 1,
-            "F1": 1
-          }
-        }
-      ]
-    },
-    {
-      "id": "Q20",
-      "index": 20,
-      "title": "Fan Conversion",
-      "text": "You dragged a non-fan friend to watch the Finals with you. End result:",
-      "options": [
-        {
-          "key": "A",
-          "text": "All they remembered was the halftime ad and the DoorDash order. They now want to watch even less basketball.",
-          "scores": {
-            "S1": 1
-          }
-        },
-        {
-          "key": "B",
-          "text": "They learned two star names. Might be willing to sit through another Finals game next year.",
-          "scores": {
-            "S1": 2
-          }
-        },
-        {
-          "key": "C",
-          "text": "They now have their own team. They've learned to say \"that was a foul,\" \"this shot is heat-check,\" \"the future is ours,\" and they started trash-talking YOUR team. You created a monster.",
-          "scores": {
-            "S1": 3,
-            "S2": 1
-          }
-        }
-      ]
-    },
-    {
-      "id": "Q21",
-      "index": 21,
-      "title": "Consumption Profile",
-      "text": "Black Friday dumps an entire page of \"jerseys, sneakers, trading cards 50% off tonight only\" in your face. Your spend personality is:",
-      "options": [
-        {
-          "key": "A",
-          "text": "Close tab. My fandom doesn't need a receipt.",
-          "scores": {
-            "A2": 1
-          }
-        },
-        {
-          "key": "B",
-          "text": "Compare prices carefully, buy one thing. Consider it this season's membership dues.",
-          "scores": {
-            "A2": 2
-          }
-        },
-        {
-          "key": "C",
-          "text": "Enter \"NBA luxury tax\" mode. Say you're being responsible, then add both the limited edition and the autographed one to cart. When the box arrives: \"this isn't impulse, this is investing in the faith.\"",
-          "scores": {
-            "A2": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "Q22",
-      "index": 22,
-      "title": "Watch Party Role",
-      "text": "A local fan meetup runs a watch party. Rule sheet: \"wear your jersey, don't leave early if we lose.\" You usually:",
-      "options": [
-        {
-          "key": "A",
-          "text": "First I've heard of this existing as a thing.",
-          "scores": {
-            "S2": 1,
-            "A1": 1
-          }
-        },
-        {
-          "key": "B",
-          "text": "Been a few times. I handle clapping, hype noises, group photos.",
-          "scores": {
-            "S2": 2,
-            "A1": 2
-          }
-        },
-        {
-          "key": "C",
-          "text": "I'm the person who organizes it. Projector, banner, chants, raffles, drinks — all coordinated from my phone. I've turned watch parties into my own little Finals operation.",
-          "scores": {
-            "S2": 3,
-            "A1": 3,
-            "S1": 1
-          }
-        }
-      ]
-    },
-    {
-      "id": "Q23",
-      "index": 23,
-      "title": "Final Loyalty Test",
-      "text": "Someone asks you sincerely: \"Your team is a tire fire. Why aren't you switching?\" You answer most like:",
-      "options": [
-        {
-          "key": "A",
-          "text": "\"I root for winners, not the process.\" (Immediately opens a futures page to check this year's title odds.)",
-          "scores": {
-            "L1": 1,
-            "L3": 1
-          }
-        },
-        {
-          "key": "B",
-          "text": "\"Not switching. But I reserve the right to roast the front office daily.\" For you, loyalty and venting are fully compatible.",
-          "scores": {
-            "L1": 2,
-            "L3": 2
-          }
-        },
-        {
-          "key": "C",
-          "text": "\"Because love.\" Then you open the rebuild thread and call \"this is our year\" like you're previewing a lottery drawing — twelfth straight year you've said it.",
-          "scores": {
-            "L1": 3,
-            "L3": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "Q24",
-      "index": 24,
-      "title": "Phone Unlock Test",
-      "text": "Hand someone your unlocked phone for 10 seconds. What's the first thing they'd notice?",
-      "options": [
-        {
-          "key": "A",
-          "text": "A score-tracking app, barely. Nothing else suggests basketball is in your life at all.",
-          "scores": {
-            "L2": 1,
-            "S3": 1
-          }
-        },
-        {
-          "key": "B",
-          "text": "Player wallpaper, a few basketball accounts followed, some highlight saves — but nowhere near obsessed.",
-          "scores": {
-            "L2": 2,
-            "S3": 2
-          }
-        },
-        {
-          "key": "C",
-          "text": "Full schedule in your calendar, fan group chat pinned, album full of screenshots and GIFs, and trade rumors filed in their own folder. Your phone looks like a bootleg front office.",
-          "scores": {
-            "L2": 3,
-            "S3": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "Q25",
-      "index": 25,
-      "title": "Finale — Playoff Elimination Game",
-      "text": "Today is your team's elimination game. From afternoon onward, you're most like:",
-      "options": [
-        {
-          "key": "A",
-          "text": "Work, dinner, life — normal. I'll catch it when it tips. One game can't disrupt the day.",
-          "scores": {},
-          "effect": "Low overall score"
-        },
-        {
-          "key": "B",
-          "text": "Schedule cleared early, channel set, snacks queued. Palms sweat in the clutch, but I'll never admit I'm nervous.",
-          "scores": {},
-          "effect": "Medium overall score"
-        },
-        {
-          "key": "C",
-          "text": "Jersey on two hours early, snacks and drinks arranged, internet stress-tested, notifications silenced. Treating this like you're staging a whole pregame ceremony for yourself. Three celebration posts drafted if we win. Tomorrow's PTO already requested if we lose.",
-          "scores": {},
-          "effect": "High overall score"
         },
         {
           "key": "D",
-          "text": "Cracked a beer before tip. First quarter, still analyzing rotations. Second quarter, fighting with the live chat. Fourth quarter, on my feet yelling at the ref in my worst indoor voice. Woke up the next day remembering none of it — just that I definitely cursed someone out.",
-          "scores": {},
-          "effect": "Hidden archetype trigger",
+          "text": "The drink is open before tip. By the fourth quarter you are standing in front of the TV yelling at the refs in a voice you will regret tomorrow.",
+          "scores": {
+            "F": 3,
+            "S": 2,
+            "A": 2
+          },
           "specialResult": "BEER"
         }
       ]

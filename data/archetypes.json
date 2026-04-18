@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "vectorOrder": [
     "B1",
     "B2",
@@ -46,8 +46,23 @@
         2
       ],
       "isSpecial": true,
-      "note": "兜底人格",
-      "triggerCondition": "用户向量与所有25种人格的最小曼哈顿距离 > 阈值 18"
+      "note": "兜底人格（hybrid fallback）",
+      "triggerCondition": "top.total ≤ 12 且签名 ≤ 3；或 top.total < 25 且签名 ≤ 6 且与 runner-up 差距 < 3；或空答案",
+      "vector5": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "FAKE",
+        "OJBK"
+      ],
+      "contrast": {
+        "FAKE": "伪球迷还会挑热点爆发，你连这点都做不到",
+        "OJBK": "都行人至少每个话题都接得上"
+      }
     },
     {
       "index": 2,
@@ -61,8 +76,17 @@
       "teamArchetype": "密尔沃基雄鹿（Milwaukee = 啤酒之城，完美匹配）",
       "vector": null,
       "isSpecial": true,
-      "note": "隐藏人格",
-      "triggerCondition": "Q25 选 D（必要条件），且 F1 ≥ M"
+      "note": "隐藏人格（终局特判）",
+      "triggerCondition": "Q17 选 D（必要条件），且戾气维度 F 达到 band 2 及以上，且无其他人格签名总分 ≥ 12",
+      "vector5": null,
+      "rivals": [
+        "HYPE",
+        "FIRE"
+      ],
+      "contrast": {
+        "HYPE": "氛围组是为比赛兴奋，你是为酒精兴奋",
+        "FIRE": "下课狂魔骂人是为球队好，你骂完第二天什么都不记得"
+      }
     },
     {
       "index": 3,
@@ -93,7 +117,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        2,
+        2,
+        2,
+        3
+      ],
+      "rivals": [
+        "STAT",
+        "MVP"
+      ],
+      "contrast": {
+        "STAT": "数据暴君拿表格说话，你只排名次不看证据",
+        "MVP": "数据刷子鉴定师怀疑数据，你只关心历史地位"
+      }
     },
     {
       "index": 4,
@@ -124,7 +163,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        3,
+        3,
+        2,
+        3
+      ],
+      "rivals": [
+        "CTRL",
+        "HYPE"
+      ],
+      "contrast": {
+        "CTRL": "预言家立对过，你立 flag 永远被打脸",
+        "HYPE": "氛围组立 flag 是为氛围，你是真信"
+      }
     },
     {
       "index": 5,
@@ -155,7 +209,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "rivals": [
+        "DEAD",
+        "MONK"
+      ],
+      "contrast": {
+        "DEAD": "死忠烈士输球就是输球，你能把输球解释成资产",
+        "MONK": "佛系僧输赢都淡，你只有输球时开心"
+      }
     },
     {
       "index": 6,
@@ -186,7 +255,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        2,
+        1,
+        2,
+        2
+      ],
+      "rivals": [
+        "FIRE",
+        "STAT"
+      ],
+      "contrast": {
+        "FIRE": "下课狂魔关心谁该滚，你关心怎么打",
+        "STAT": "数据暴君甩数据，你甩战术板"
+      }
     },
     {
       "index": 7,
@@ -217,7 +301,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "rivals": [
+        "COAH",
+        "MVP"
+      ],
+      "contrast": {
+        "COAH": "键盘教练讨论战术，你只信数据",
+        "MVP": "数据刷子鉴定师否定数据，你崇拜数据"
+      }
     },
     {
       "index": 8,
@@ -248,7 +347,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        2,
+        2,
+        1,
+        3
+      ],
+      "rivals": [
+        "POLO",
+        "MEDI"
+      ],
+      "contrast": {
+        "POLO": "波兰中锋的梗是创伤祭日，你的梗是度量衡",
+        "MEDI": "麦迪时刻的梗是浪漫，你的梗是 GDP"
+      }
     },
     {
       "index": 9,
@@ -279,7 +393,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "FAKE",
+        "OJBK"
+      ],
+      "contrast": {
+        "FAKE": "伪球迷平时不看，你一直在看只是在看强队",
+        "OJBK": "都行人是真没偏好，你只是选赢家"
+      }
     },
     {
       "index": 10,
@@ -310,7 +439,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "rivals": [
+        "58",
+        "MEDI"
+      ],
+      "contrast": {
+        "58": "五八哥的梗是度量衡，你的梗是忌日",
+        "MEDI": "麦迪时刻的梗是奇迹，你的梗是创伤"
+      }
     },
     {
       "index": 11,
@@ -341,7 +485,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        3,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "REF",
+        "FIRE"
+      ],
+      "contrast": {
+        "REF": "黑哨侠怪裁判，你怪别人过得太好",
+        "FIRE": "下课狂魔对自家开火，你对别人开火"
+      }
     },
     {
       "index": 12,
@@ -372,7 +531,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        3,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "SALT",
+        "FIRE"
+      ],
+      "contrast": {
+        "SALT": "柠檬精嫉妒别人，你只怪裁判",
+        "FIRE": "下课狂魔骂教练，你骂裁判"
+      }
     },
     {
       "index": 13,
@@ -403,7 +577,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        3,
+        2,
+        2
+      ],
+      "rivals": [
+        "COAH",
+        "REF"
+      ],
+      "contrast": {
+        "COAH": "键盘教练讨论战术，你讨论谁该滚",
+        "REF": "黑哨侠把锅给裁判，你把锅给管理层"
+      }
     },
     {
       "index": 14,
@@ -434,7 +623,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "3PTR",
+        "HYPE"
+      ],
+      "contrast": {
+        "3PTR": "Logo Shot 信徒为远投浪漫，你为起飞暴力",
+        "HYPE": "氛围组为发圈而嗨，你为扣篮本身而嗨"
+      }
     },
     {
       "index": 15,
@@ -465,7 +669,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "DUNK",
+        "MEDI"
+      ],
+      "contrast": {
+        "DUNK": "暴力美学家为起飞而爽，你为远投而爽",
+        "MEDI": "麦迪时刻为奇迹而爽，你为美学而爽"
+      }
     },
     {
       "index": 16,
@@ -496,7 +715,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "3PTR",
+        "POLO"
+      ],
+      "contrast": {
+        "3PTR": "Logo Shot 信徒信远投，你信奇迹",
+        "POLO": "波兰中锋的回忆是创伤，你的回忆是童话"
+      }
     },
     {
       "index": 17,
@@ -527,7 +761,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "rivals": [
+        "TANK",
+        "MONK"
+      ],
+      "contrast": {
+        "TANK": "摆烂专家输球还开心，你只是熬着",
+        "MONK": "佛系僧输赢都不在意，你只是不敢不在意"
+      }
     },
     {
       "index": 18,
@@ -558,7 +807,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "rivals": [
+        "HYPE",
+        "MONK"
+      ],
+      "contrast": {
+        "HYPE": "氛围组要发出来才满足，你一个人看就够",
+        "MONK": "佛系僧淡然不投入，你是主动选择独处"
+      }
     },
     {
       "index": 19,
@@ -589,7 +853,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "STAT",
+        "GOAT"
+      ],
+      "contrast": {
+        "STAT": "数据暴君信数据，你怀疑数据",
+        "GOAT": "历史第一只排名次，你还会追问含金量"
+      }
     },
     {
       "index": 20,
@@ -620,7 +899,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        3,
+        2,
+        1,
+        2,
+        2
+      ],
+      "rivals": [
+        "STAT",
+        "IRON"
+      ],
+      "contrast": {
+        "STAT": "数据暴君用数据吵架，你用预言吵架",
+        "IRON": "打铁之王立 flag 被打脸，你立 flag 真会兑现"
+      }
     },
     {
       "index": 21,
@@ -651,7 +945,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "rivals": [
+        "BAND",
+        "BNCH"
+      ],
+      "contrast": {
+        "BAND": "抱团侠至少一直在看，你只在大赛出现",
+        "BNCH": "板凳匪徒连梗都接不上，你至少接得上热点"
+      }
     },
     {
       "index": 22,
@@ -682,7 +991,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "rivals": [
+        "SOLO",
+        "ATM"
+      ],
+      "contrast": {
+        "SOLO": "独狼一个人看就满足，你必须发出来才完整",
+        "ATM": "氪金球迷靠花钱证明热爱，你靠发帖证明热爱"
+      }
     },
     {
       "index": 23,
@@ -713,7 +1037,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "rivals": [
+        "DEAD",
+        "OJBK"
+      ],
+      "contrast": {
+        "DEAD": "死忠烈士熬着陪着，你连陪都懒得陪",
+        "OJBK": "都行人是真没偏好，你是看透了所以不投入"
+      }
     },
     {
       "index": 24,
@@ -744,7 +1083,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "HYPE",
+        "HOOP"
+      ],
+      "contrast": {
+        "HYPE": "氛围组靠发帖证明，你靠账单证明",
+        "HOOP": "野球王靠上场证明，你靠花钱证明"
+      }
     },
     {
       "index": 25,
@@ -775,7 +1129,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        1,
+        1,
+        2,
+        3,
+        2
+      ],
+      "rivals": [
+        "COAH",
+        "DUNK"
+      ],
+      "contrast": {
+        "COAH": "键盘教练讨论怎么打，你上场就打",
+        "DUNK": "暴力美学家看扣篮兴奋，你想自己扣"
+      }
     },
     {
       "index": 26,
@@ -806,7 +1175,22 @@
       ],
       "isSpecial": false,
       "note": null,
-      "triggerCondition": null
+      "triggerCondition": null,
+      "vector5": [
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "rivals": [
+        "DEAD",
+        "MONK"
+      ],
+      "contrast": {
+        "DEAD": "死忠烈士赢球就行，你更关心球员",
+        "MONK": "佛系僧万事都淡，你对伤病特别上心"
+      }
     },
     {
       "index": 27,
@@ -836,8 +1220,30 @@
         2
       ],
       "isSpecial": false,
-      "note": null,
-      "triggerCondition": null
+      "note": "门控人格（所有维度都不极端时才登场）",
+      "triggerCondition": "用户向量 5 个维度没有任何一个达到 band 3，且 OJBK 自身签名 / base 评分在所有人格中排第一",
+      "vector5": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rivals": [
+        "BNCH",
+        "MONK"
+      ],
+      "contrast": {
+        "BNCH": "板凳匪徒连话都接不上，你至少都能聊",
+        "MONK": "佛系僧是主动看透，你是真没深坑"
+      }
     }
+  ],
+  "vectorOrder5": [
+    "B",
+    "L",
+    "F",
+    "A",
+    "S"
   ]
 }
